@@ -2,7 +2,7 @@
 
 ## Qué es Node
 
-<img src="https://cdn-media-1.freecodecamp.org/images/1*AL0-iuggGnBLSvSVvt0Xzw.png"
+<img src="https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/middlewares-en-nodejs-t1.jpg"
 width="680" />
 
 
@@ -32,6 +32,11 @@ npm run start
 ```
 
 ## Módulos
+
+
+<img src="https://cdn-media-1.freecodecamp.org/images/1*AL0-iuggGnBLSvSVvt0Xzw.png"
+width="680" />
+
 
 ### Qué es un módulo
 
