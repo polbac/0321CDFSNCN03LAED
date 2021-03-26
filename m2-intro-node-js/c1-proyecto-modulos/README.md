@@ -2,7 +2,7 @@
 
 ## Qué es Node
 
-<img src="https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/middlewares-en-nodejs-t1.jpg"
+<img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1059538366%2F960x0.jpg%3Ffit%3Dscale"
 width="680" />
 
 

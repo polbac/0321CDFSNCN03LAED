@@ -10,14 +10,8 @@
 
 ## GIT / TERMINAL
 
-# Comandos
+## Comandos
 
 ## VSCODE
-
-- IDE
-- Árbol de archivos
-- Extensiones
-- Themes
-- 
 
 ## NODE

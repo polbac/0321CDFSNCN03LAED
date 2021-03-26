@@ -1,5 +1,8 @@
 # Ejercicios módulos
 
+<img src="https://cdn-media-1.freecodecamp.org/images/1*AL0-iuggGnBLSvSVvt0Xzw.png"
+width="680" />
+
 1. Crear un proyecto node
 2. Crear un archivo principal que corra node
 3. Crear un módulo que exporte un array con los nombre de los integrantes del grupo
