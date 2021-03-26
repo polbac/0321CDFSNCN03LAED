@@ -1,6 +1,6 @@
 # Ejercicios módulos
 
-<img src="https://cdn-media-1.freecodecamp.org/images/1*AL0-iuggGnBLSvSVvt0Xzw.png"
+<img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1059538366%2F960x0.jpg%3Ffit%3Dscale"
 width="680" />
 
 1. Crear un proyecto node
