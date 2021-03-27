@@ -1,0 +1,22 @@
+{
+  "name": "0321cdfsncn03laed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polbac/0321CDFSNCN03LAED.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polbac/0321CDFSNCN03LAED/issues"
+  },
+  "homepage": "https://github.com/polbac/0321CDFSNCN03LAED#readme"
+}
