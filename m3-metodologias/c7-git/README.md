@@ -54,6 +54,6 @@ git checkout -b nombre-rama // crea rama
 git checkout nombre-rama // pasa a esa rama
 ```
 
-## Conflictos
+## Conflictos1
 
 ## VSCode
