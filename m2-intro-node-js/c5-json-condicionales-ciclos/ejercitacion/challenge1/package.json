@@ -1,0 +1,12 @@
+{
+  "name": "challenge1",
+  "version": "1.0.0",
+  "description": "En nuestro ecommerce, el equipo de DS necesita hacer unas predicciones para mejorar la forma de como presentaremos los productos en nuestro website, para eso necesita recolectar ciertos datos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "calculate-total": "node app"
+  },
+  "author": "",
+  "license": "ISC"
+}
