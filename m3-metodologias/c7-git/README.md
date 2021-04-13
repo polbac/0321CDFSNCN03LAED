@@ -29,6 +29,9 @@ git status
 ```
 git add path_archivo
 git add .
+
+git reset path_archivo
+git reset .
 ```
 
 ## Subir cambios
