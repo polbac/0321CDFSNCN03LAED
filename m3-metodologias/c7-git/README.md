@@ -61,15 +61,17 @@ git pull origin (branch)
 ```
 
 ## Clonar repositorio
+
 ```
 git clone url_repositorio
-``
+```
 
 ## Conflictos
 
 ## VSCode
 
 ## Ramas
+
 ```
 git checkout -b nombre-rama // crea rama
 git checkout nombre-rama // pasa a esa rama
