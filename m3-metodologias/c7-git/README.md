@@ -1,4 +1,18 @@
-# GIT
+# PREVIA
+
+1. Encuesta
+2. Colearning
+
+
+---
+
+
+# GIT&GITHUB
+
+<img src="https://media.giphy.com/media/cFkiFMDg3iFoI/giphy.gif" />
+
+
+
 
 ## Inicializar repositorio
 ```
@@ -49,14 +63,14 @@ git pull origin (branch)
 ## Clonar repositorio
 ```
 git clone url_repositorio
-```
+``
+
+## Conflictos
+
+## VSCode
 
 ## Ramas
 ```
 git checkout -b nombre-rama // crea rama
 git checkout nombre-rama // pasa a esa rama
 ```
-
-## Conflictos
-
-## VSCode
