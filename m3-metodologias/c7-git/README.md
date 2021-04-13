@@ -60,3 +60,4 @@ git checkout nombre-rama // pasa a esa rama
 ## Conflictos
 
 ## VSCode
+romper todo
