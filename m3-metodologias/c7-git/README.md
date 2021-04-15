@@ -1,13 +1,5 @@
-# PREVIA
 
-1. Encuesta
-2. Colearning
-
-
----
-
-
-# GIT&GITHUB
+# GIT & GITHUB
 
 <img src="https://media.giphy.com/media/cFkiFMDg3iFoI/giphy.gif" />
 
