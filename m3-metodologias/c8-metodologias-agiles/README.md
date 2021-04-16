@@ -25,7 +25,12 @@ https://jamboard.google.com/d/1LEiqDymft8kQrOiDx14nvl1h7qInz2xykH1zhOzFq_8/edit?
 ## Chaos Report 2019
 https://vitalitychicago.com/blog/agile-projects-are-more-successful-traditional-projects/#:~:text=Comparing%20Waterfall%20and%20Agile%20Project%20Success%20Rates&text=From%20the%20Standish%20Group%202018,to%20fail%20than%20agile%20projects.
 
+#Trello
 
+https://trello.com/b/99jfxpZ5/dh
+
+## Poker Planning
+https://www.planitpoker.com/board/#/room/0eb1460922754dd4807c4dbe3040d113
 
 ## Encuesta Equipos
 https://docs.google.com/forms/d/1ihFXER8fcSWLylJqZSLHo9yMwZAD0kodh-ns58QKsmE
