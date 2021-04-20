@@ -1,7 +1,8 @@
-# WIREFRAMES
+# Lanzamiento Proyecto Integrador
 
-<img src="https://media.giphy.com/media/Vl6KUqzMOjQyfCeBqp/giphy.gif" />
+<img src="https://media.giphy.com/media/1n4FT4KRQkDvK0IO4X/giphy.gif" width="200" />
 
+- Invitadxs Sorpresa ❓
 - Entrega Checkpoint
 - Repaso Wireframe
 - Presentación Grupos
