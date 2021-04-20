@@ -25,7 +25,7 @@ https://jamboard.google.com/d/1LEiqDymft8kQrOiDx14nvl1h7qInz2xykH1zhOzFq_8/edit?
 ## Chaos Report 2019
 https://vitalitychicago.com/blog/agile-projects-are-more-successful-traditional-projects/#:~:text=Comparing%20Waterfall%20and%20Agile%20Project%20Success%20Rates&text=From%20the%20Standish%20Group%202018,to%20fail%20than%20agile%20projects.
 
-#Trello
+## Trello
 
 https://trello.com/b/99jfxpZ5/dh
 
