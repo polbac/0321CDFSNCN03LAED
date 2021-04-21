@@ -1,4 +1,10 @@
-# GIT
+
+# GIT & GITHUB
+
+<img src="https://media.giphy.com/media/cFkiFMDg3iFoI/giphy.gif" />
+
+
+
 
 ## Inicializar repositorio
 ```
@@ -29,6 +35,9 @@ git status
 ```
 git add path_archivo
 git add .
+
+git reset path_archivo
+git reset .
 ```
 
 ## Subir cambios
@@ -44,16 +53,18 @@ git pull origin (branch)
 ```
 
 ## Clonar repositorio
+
 ```
 git clone url_repositorio
-```
-
-## Ramas
-```
-git checkout -b nombre-rama // crea rama
-git checkout nombre-rama // pasa a esa rama
 ```
 
 ## Conflictos
 
 ## VSCode
+
+## Ramas
+
+```
+git checkout -b nombre-rama // crea rama
+git checkout nombre-rama // pasa a esa rama
+```
