@@ -1,0 +1,19 @@
+const express = require('express')
+const app = express()
+const path = require('path')
+
+// definimos la carpeta que devuelve archivos estáticos
+app.use(express.static('public'))
+
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname + '/views/home.html'))
+})
+
+app.get('/article/article-1', (req, res) => {
+    res.sendFile(path.join(__dirname + '/views/article.html'))
+})
+
+
+app.listen(3000, () => {
+    console.log('El servidor ya está corriendo en el puerto 3000')
+})

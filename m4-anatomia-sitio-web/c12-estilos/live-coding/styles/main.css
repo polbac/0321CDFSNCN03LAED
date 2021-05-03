@@ -1,0 +1,103 @@
+
+/*
+selector: etiqueta
+*/
+
+p{
+    color: palevioletred; 
+    color: rgb(255,0,0);
+    color: rgba(255,0,0,0.5);
+    color: #FF00FF;
+}
+
+/*
+selector: clase
+*/
+
+.texto{
+    
+}
+
+
+/*
+selector: id
+*/
+
+#texto-1{
+
+}
+
+/*
+selector: combinado
+*/
+
+/* p.texto#texto-1{
+    color: red;
+}
+ */
+/*
+selector: descendiente
+*/
+
+header #texto-1{
+    color: blue;
+}
+html body main footer#pie p{
+    color: green !important;
+}
+
+/* 
+Tipogafías 
+
+absolutos:
+px
+cm
+mm
+
+relativos
+%
+em
+rem
+
+vh -> 100vh
+vw -> 100vw
+*/
+
+html{
+    font-family: 'Krona One', Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+header{
+    font-size: 2em;
+    background-color: #00fdfA;
+    background-image: url('../img/Darth-Vader.jpeg');
+    background-repeat: no-repeat;
+    background-size: 50vh;
+    background-attachment: initial;
+    /*
+    top
+    bottom
+    left
+    right
+    center
+    */
+    background-position: 100px 0;
+}
+
+header h1{
+    font-size: 1rem;
+}
+
+p{
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+a{
+    text-decoration: none;
+}
