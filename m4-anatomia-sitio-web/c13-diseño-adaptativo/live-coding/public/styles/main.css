@@ -1,0 +1,88 @@
+html,body{
+    background-color: #000000;
+    color: white;
+    font-family: "Staatliches", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background: blue;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+}
+
+main{
+    text-align: center;
+    font-size: 2em;
+}
+
+.planet{
+    /* espacio por fuera de la caja */
+    
+    
+    /*     
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+
+    margin: 10px 20px 5px 6px; */
+
+    /* espacio interno de la caja*/
+    /* padding: 1px; */
+    
+
+    /* ancho*/
+    /* width: 50%; */
+
+    /* height */
+    /* height: 800px; */
+    display: inline-block;
+
+    /* border: 2px solid blue; */
+
+    /* height: 600px; */
+}
+
+.planet h2{
+    font-size: 1rem;
+}
+
+.container{
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    /* margin: 0 20px 0 20px; */
+    
+    margin: 40px 50px;
+}
+
+/* Mobile First */
+
+@media (min-width: 576px) {
+    .planet{
+        width: 50%;
+    }
+    header{
+        background: pink;
+    }
+}
+
+@media (min-width: 768px) {
+    .planet{
+        width: 33.33%;
+    }
+}
+
+@media (min-width: 992px) {
+    .planet{
+        width: 25%;
+    }
+}
+
