@@ -1,0 +1,121 @@
+html,body{
+    background-color: #000000;
+    color: white;
+    font-family: "Staatliches", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header form{
+    height: 40px;
+    display: flex;
+}
+
+header form button{
+    background: black;
+    color: pink;
+}
+
+.planets{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.planet{
+    text-align: center;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background: blue;
+    padding: 20px;
+    flex-direction: column;
+}
+
+header form input{
+    flex-grow: 1;
+}
+header form button{
+    width: 100px;
+    margin-left: 10px;
+}
+
+.ships{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+}
+
+.ships .ship{
+    display: flex;
+    background: burlywood;
+    color: black;
+    margin-bottom: 30px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ships .ship p{
+    padding: 10px;
+}
+
+.ships .ship img{
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .planet{
+        flex-basis: 50%;
+    }
+
+    header{
+        flex-direction: row;
+    }
+
+
+    header form {
+        width: 40%;
+    }
+
+    .ships .ship{
+        flex-direction: row;
+    }
+
+    .ships .ship.ship-2{
+        flex-direction: row-reverse;
+    }
+
+    .ships .ship img{
+        width: 50%;
+    }
+
+}
+
+@media (min-width: 980px) {
+    .planet{
+        flex-basis: 33.33%;
+    }   
+    .ship p{
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .planet{
+        flex-basis: 25%;
+    }   
+
+    .ships .ship img{
+        width: 33%;
+    }
+}

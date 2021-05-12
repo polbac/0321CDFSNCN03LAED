@@ -1,0 +1,190 @@
+html,body{
+    background-color: #000000;
+    color: white;
+    font-family: "Staatliches", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}   
+
+header form{
+    display: flex;
+    height: 50px;
+    align-items: stretch;
+}
+
+header form input{
+    flex-grow: 1;
+}
+
+header form button{
+    background: black;
+    color: pink;
+    width: 100px;
+    margin-left: 10px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    font-size: 1.25em;
+}
+
+
+nav a.active,
+nav a:hover{
+    background: black;
+    color: khaki;
+}
+
+.input-container p,
+.input-container label{
+    display: block;
+    font-size: 1.25em;
+}
+
+.input-container input,
+.input-container textarea{
+    width: 100%;
+    font-size: 1.2em;
+    color: gray;
+    padding: 10px;
+    outline: none;
+}
+
+.input-container .label-inline{
+    display: inline;
+}
+
+.input-container select{
+    font-size: 1.25em;
+}
+.input-container input[type="checkbox"],
+.input-container input[type="radio"]{
+    width: initial;
+}
+
+.input-container textarea{
+    height: 100px;
+}
+
+.input-container textarea:focus,
+.input-container input:focus{
+    border: 3px solid orange;
+}
+
+.input-container label::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: blue;
+}
+
+.planets{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.planet{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header{    
+    background: blue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ships .ship{
+    background: burlywood;
+    color: black;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+}
+
+.ships .ship p{
+    padding: 20px;
+}
+
+nav{
+    background: #64b564;
+    font-size: 1.5em;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+nav a{
+    color: black;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.send-planet{
+    margin: auto;
+    max-width: 760px;
+}
+
+input{
+    font-size: 1.25em;
+}
+
+
+
+/* Mobile First */
+
+@media (min-width: 576px) {
+    .planets .planet{
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .planets .planet{
+        flex-basis: 33.33%;
+    }
+
+    .ships .ship{
+        flex-direction: row;
+    }
+    .ships .ship.ship-2{
+        flex-direction: row-reverse;
+    }
+    .ships .ship p{
+        font-size: 1.25em;
+        text-align: right;
+    }
+    .ships .ship img,.ships .ship p{
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .planets .planet{
+        flex-basis: 25%;
+    }
+
+    .ships .ship img{
+        width: 33.33%;
+    }
+    .ships .ship p{
+        flex-grow: 1;
+    }
+    
+}
+
