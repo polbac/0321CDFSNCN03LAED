@@ -34,12 +34,6 @@ header form button{
 }
 
 
-nav a.active,
-nav a:hover{
-    background: black;
-    color: khaki;
-}
-
 .input-container p,
 .input-container label{
     display: block;
@@ -124,10 +118,38 @@ nav{
     margin-bottom: 10px;
 }
 
+
 nav a{
     color: black;
     margin: 10px;
     text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s;
+}
+
+nav a.active,
+nav a:hover{
+    background: black;
+    color: yellow;
+    
+}
+
+article.planet{
+    position: relative;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.planet h2.titulo-mercurio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
 }
 
 .send-planet{
@@ -139,14 +161,74 @@ input{
     font-size: 1.25em;
 }
 
-
-#welcome-modal{
-    width: 80%;
-    max-width: 500px;
-    height: 300px;
-    background-color: red;
+.send-planet form button{
+    background:burlywood;
+    border: 0;
+    padding: 10px;
+    font-family: "Staatliches", Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #000;
+    box-shadow: 5px 5px 5px gray;
+    transition: all 1s;
 }
 
+.send-planet form button:hover{
+    background: hotpink;
+    color: #fff;
+    box-shadow: 5px 5px 5px green;
+    height: 100px;
+}
+
+#space-x-banner{
+    width: 200px;
+    height: 200px;
+    background: red;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    background-image: url(/images/spacex.png);
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 5px 5px 15px red;
+    animation: space-x-levitate 3s infinite;
+}
+
+@keyframes space-x-levitate{
+    0%{
+        bottom: 20px;
+    }
+    50%{
+        bottom: 30px;
+        box-shadow: 5px 5px 15px green;
+    }
+    100%{
+        bottom: 20px;
+    }
+}
+
+#modal-welcome-container{
+    z-index: 9999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: rgba(0,0,0,0.8); */
+    backdrop-filter: blur(10px);
+}
+
+#modal-welcome{
+    background: gray;
+    width: 600px;
+    height: 600px;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
 
 /* Mobile First */
 
