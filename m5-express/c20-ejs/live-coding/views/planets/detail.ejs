@@ -11,8 +11,12 @@
 
 
        <section class="planets-detail">
+           <% if (planetDetail == null) {%>
+            UPS no encontramos el planeta
+           <% } else { %>
             <h2><%= planetDetail.name %></h2>
             <img src="<%= planetDetail.image %>" width="80%"/>
+            <% } %>
         </section>
 
 
