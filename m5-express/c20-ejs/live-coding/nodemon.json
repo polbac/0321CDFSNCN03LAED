@@ -1,0 +1,4 @@
+{
+    "watch": ["app.js", "./"],
+    "ext": "js, css"
+  }

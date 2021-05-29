@@ -1,0 +1,58 @@
+{
+    "planets": [
+        {
+            "id": 1,
+            "image": "/images/mercurio.jpeg",
+            "name": "Mercurio",
+            "anillos": "false"
+        },
+        {
+            "id": 2,
+            "image": "/images/venus.jpeg",
+            "name": "Venus",
+            "anillos": "false"
+        },
+        {
+            "id": 3,
+            "image": "/images/tierra.jpeg",
+            "name": "Tierra",
+            "anillos": "false"
+        },
+        {
+            "id": 4,
+            "name": "Marte",
+            "image": "/images/marte.jpeg",
+            "anillos": "false"
+        },
+        {
+            "id": 5,
+            "name": "Jupiter",
+            "image": "/images/jupiter.jpeg",
+            "anillos": "false"
+        },        
+        {
+            "id": 6,
+            "name": "Saturno",
+            "image": "/images/saturno.jpeg",
+            "anillos": "true"
+        },        
+        {
+            "id": 7,
+            "name": "Urano",
+            "image": "/images/urano.jpeg",
+            "anillos": "false"
+        },        
+        {
+            "id": 8,
+            "name": "Neptuno",
+            "image": "/images/neptuno.jpeg",
+            "anillos": "false"
+        },        
+        {
+            "id": 9,
+            "name": "Plutón",
+            "image": "/images/pluton.png",
+            "anillos": "false"
+        }
+    ]
+}
