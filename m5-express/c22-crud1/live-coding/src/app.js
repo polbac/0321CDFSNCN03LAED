@@ -13,8 +13,11 @@ app.set('view engine', 'ejs');
 
 app.use(method('_method'));
 app.use(logger('dev'));
+
+// No olvidarse esto para que la data se envie correctamente desde un formulario
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
