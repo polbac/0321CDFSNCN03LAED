@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+    
+
+
+
+       <section class="planets-detail">
+           <% if (planetDetail == null) {%>
+            UPS no encontramos el planeta
+           <% } else { %>
+
+            <h2><%= planetDetail.name %></h2>
+            <h3>Tiene anillos: <%= planetDetail.rings %> </h3>
+            <img src="<%= planetDetail.image %>" width="80%"/>
+            
+            <% } %>
+            
+            <div class="actions">
+                <a href="/planets/<%= planetDetail.id %>/edit">
+                    <button>Edit</button>
+                </a>
+            </div>
+        </section>
+
+
+   </main>
+
+
+
+</body>
+</html> 
