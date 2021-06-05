@@ -14,4 +14,7 @@ planetsRoutes.post('/create', planetsController.store);
 planetsRoutes.get('/:id/edit', planetsController.edit);
 planetsRoutes.put('/:id', planetsController.update);
 
+// Delete
+planetsRoutes.delete('/:id', planetsController.destroy);
+
 module.exports = planetsRoutes

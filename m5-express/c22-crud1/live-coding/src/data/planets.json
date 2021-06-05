@@ -52,10 +52,5 @@
     "name": "Plutón",
     "image": "/images/pluton.png",
     "rings": "no"
-  },
-  {
-    "id": 10,
-    "name": "Empanda",
-    "rings": "yes"
   }
 ]

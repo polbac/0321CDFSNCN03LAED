@@ -25,6 +25,9 @@
                 <a href="/planets/<%= planetDetail.id %>/edit">
                     <button>Edit</button>
                 </a>
+                <form action="/planets/<%= planetDetail.id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
             </div>
         </section>
 

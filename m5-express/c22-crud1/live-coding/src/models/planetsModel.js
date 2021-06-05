@@ -59,5 +59,12 @@ module.exports = {
         });
 
         this.writeFile(newPlanets);
+    },
+    destroy(id) {
+        const planets = this.readFile();
+
+        const newPlanets = planets.filter(planet => planet.id != id);
+
+        this.writeFile(newPlanets);
     }
 }

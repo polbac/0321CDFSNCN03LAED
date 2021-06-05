@@ -49,6 +49,13 @@ const planetsController = {
         planetsModel.update(data, id);
 
         res.redirect('/planets/detail/' + id);
+    },
+    destroy: (req, res) => {
+        const id = req.params.id;
+        
+        planetsModel.destroy(id);
+
+        res.redirect('/planets/list');
     }
 }
 
