@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+       
+        <section class="send-planet">
+            <!-- 
+                action: la ruta donde vamos a mandar nuestros campos 
+            -->
+            <form action="/planets/create" method="POST" enctype="multipart/form-data">
+
+                <div class="input-container">
+                    <label for="name">Ingrese su nombre</label>
+                    <input type="text" name="name" id="name" required/>
+                </div>
+
+                <div class="input-container">
+                    <label for="life">¿Su planeta tiene anillos?</label>
+                    <input type="radio" required name="rings" id="life" value="yes" /> Si
+                    <input type="radio" required name="rings" id="life" value="no" /> No
+                </div>
+
+                <div class="input-container">
+                    <label for="life">Imágen</label>
+                    <input type="file" required name="image" id="image" />
+                </div>
+
+                <div class="input-container">
+                    <button type="submit">CREAR</button>
+                </div>
+
+            </form>
+        </section>
+
+
+   </main>
+
+   <div id="space-x-banner"></div>
+
+
+</body>
+</html> 
