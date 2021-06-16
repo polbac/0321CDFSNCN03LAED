@@ -163,6 +163,13 @@ nav{
     z-index: 999;
 }
 
+.msg-error{
+    color: red;
+}
+
+.input-error{
+    border: 2px solid red;
+}
 
 .send-planet{
     margin: auto;

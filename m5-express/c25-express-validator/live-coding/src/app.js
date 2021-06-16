@@ -4,8 +4,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const method = require('method-override');
+const notFoundMiddleware = require('./middlewares/notFound')
 
 const app = express();
+
+// middleware de aplicación
+app.use((req, res, next) => {
+  console.log('hola soy el primer middleware')
+  next()
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +38,8 @@ app.get('/', (req, res) => {
 // planets
 const planetsRoutes = require('./routes/planetsRoutes')
 app.use('/planets', planetsRoutes)
+
+app.use(notFoundMiddleware)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

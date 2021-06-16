@@ -14,8 +14,8 @@
   {
     "id": 4,
     "name": "Marte",
-    "image": "/images/marte.jpeg",
-    "rings": "no"
+    "rings": "yes",
+    "image": "/images/marte.jpeg"
   },
   {
     "id": 5,
@@ -52,5 +52,11 @@
     "name": "X3",
     "rings": "yes",
     "image": "/images/1623201222798.jpeg"
+  },
+  {
+    "name": "PLANETA 123",
+    "rings": "yes",
+    "image": "/images/1623807076112.jpg",
+    "id": 11
   }
 ]

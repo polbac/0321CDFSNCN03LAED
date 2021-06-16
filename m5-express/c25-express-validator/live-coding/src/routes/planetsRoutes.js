@@ -3,6 +3,10 @@ const planetsRoutes = express.Router()
 const multer = require('multer')
 const path = require('path')
 
+const { isFileImage } = require('../helpers/file')
+
+const validationNewPlanet = require('../middlewares/validationNewPlanet')
+
 // destino donde guardar el archivo
 // nombre del archivo
 const storage = multer.diskStorage({
@@ -29,9 +33,34 @@ const storage = multer.diskStorage({
     },
 })
 
-const upload = multer({ storage })
+// fileFilter es un byPass para que multer guarde o no el archivo
+const fileFilter = (req, file, cb)  => {
+    if (!file) {
+        cb(null, false)
+
+        // corta ejecución
+        return
+    }
+
+    if (!isFileImage(file.originalname)) {
+        // gonza workaround para que llegue a express-validator el archivo
+        req.file = file
+
+        cb(null, false)
+
+        // corta ejecución
+        return
+    }
+   
+    // Si aceptamos el archivo
+    cb(null, true)
+
+  }
+
+const upload = multer({ storage, fileFilter })
 
 const planetsController = require('../controllers/planetsController')
+const { fstat } = require('fs')
 
 planetsRoutes.get('/list', planetsController.list)
 planetsRoutes.get('/detail/:id', planetsController.detail)
@@ -40,7 +69,7 @@ planetsRoutes.get('/detail/:id', planetsController.detail)
 planetsRoutes.get('/create', planetsController.formNew);
 
 // aca deberíamos pasar multer
-planetsRoutes.post('/create', upload.single('image'), planetsController.store);
+planetsRoutes.post('/create', upload.single('image'), validationNewPlanet, planetsController.store);
 
 // Update
 planetsRoutes.get('/:id/edit', planetsController.edit);

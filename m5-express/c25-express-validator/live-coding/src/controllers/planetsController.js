@@ -1,5 +1,6 @@
+const { validationResult } = require('express-validator')
 const planetsModel = require('../models/planetsModel')
-
+const fs = require('fs')
 
 const planetsController = {
     list: (req, res) => {
@@ -8,6 +9,7 @@ const planetsController = {
         // aca leo el json y se lo paso al template
         // res.render('planets/list', { planetList: planetList })
         res.render('planets/list', { planetList })
+        
     },
     detail: (req, res) => {
         // levantamos el id desde la url (parámetro)
@@ -23,6 +25,27 @@ const planetsController = {
         res.render('planets/new')
     },
     store: (req, res) => {
+        const formValidation = validationResult(req)
+        
+        /* si encuentro un error devuelvo el formulario
+        con los valores ya cargados y los errores */
+        console.log('formValidation.mapped()',formValidation.mapped())
+        
+        if (!formValidation.isEmpty()) {
+            // borrar imagen
+            if (req.file) {
+                // primero chequeamos que exista
+                fs.unlinkSync(req.file.path)
+            }
+            
+
+            // tenemos errores
+            const oldValues = req.body
+            res.render('planets/new', { oldValues, errors: formValidation.mapped() })
+          return  
+        } 
+
+
         // Crear el objeto planeta
         const { name, rings } = req.body;
 
