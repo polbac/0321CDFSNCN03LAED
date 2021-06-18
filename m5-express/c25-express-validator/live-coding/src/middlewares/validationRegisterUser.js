@@ -2,23 +2,25 @@ const { body } = require('express-validator')
 
 const { isFileImage } = require('../helpers/file')
 
-const validationNewPlanet = [
+const validationRegisterUser = [
     body('name')
         .notEmpty()
-        .withMessage('Por favor ingrese un nombre de planeta')
+        .withMessage('Por favor ingrese su nombre'),
+    body('email')
+        .notEmpty()
+        .withMessage('Por favor ingrese su e-mail')
+        .isEmail()
+        .withMessage('No es en formato e-mail'),
+    body('password')
+        .notEmpty()
+        .withMessage('Por favor ingrese su password')
         .bail()
-        //
-        .isLength({ min: 3 })
-        .withMessage('Por favor un nombre más largo'),
-        // como es la última no usamos bail()
-    body('rings')
-        .notEmpty().withMessage('Por favor seleccione si tiene anillos'),
+        .isStrongPassword()
+        .withMessage('No es muy seguro'),
     body('image')
         .custom((value, { req }) => {
             const { file } = req
 
-            console.log('file', file)
-            
             // chequea que haya cargado imagen
             if (!file) {
                 // esto es como si hicieramos .withMessage('Seleccione un archivo')
@@ -37,4 +39,4 @@ const validationNewPlanet = [
         })
 ]
 
-module.exports = validationNewPlanet
+module.exports = validationRegisterUser

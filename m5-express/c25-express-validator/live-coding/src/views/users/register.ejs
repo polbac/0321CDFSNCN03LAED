@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+       
+        <section class="session-form">
+            
+            <form action="/users/register" method="POST" enctype="multipart/form-data">
+                <div class="input-container">
+                    <label for="name">Ingrese su nombre</label>
+                    <input type="text" name="name" id="name" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.name %>"/>
+                    
+                    <% if (locals.errors && errors.name) { %>
+                        <p class='msg-error'><%= errors.name.msg %></p>
+                    <% } %>
+                </div>
+
+                <div class="input-container">
+                    <label for="name">Ingrese su email</label>
+                    <input type="text" name="email" id="email" class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.email %>"/>
+                    
+                    <% if (locals.errors && errors.email) { %>
+                        <p class='msg-error'><%= errors.email.msg %></p>
+                    <% } %>
+                </div>
+
+                <div class="input-container">
+                    <label for="password">Ingrese su password</label>
+                    <input type="password" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.password %>"/>
+                    
+                    <% if (locals.errors && errors.password) { %>
+                        <p class='msg-error'><%= errors.password.msg %></p>
+                    <% } %>
+                </div>
+
+                <div class="input-container">
+                    <label for="image">Imágen de perfil</label>
+                    <input type="file" name="image" id="image" />
+                    <% if (locals.errors && errors.image) { %>
+                        <p class='msg-error'><%= errors.image.msg %></p>
+                    <% } %>
+
+                </div>
+
+
+
+                <div class="input-container">
+                    <button type="submit">Ingresar</button>
+                </div>
+
+            </form>
+        </section>
+
+
+   </main>
+
+   <div id="space-x-banner"></div>
+
+
+</body>
+</html> 

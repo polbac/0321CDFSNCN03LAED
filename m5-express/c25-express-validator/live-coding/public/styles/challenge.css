@@ -10,7 +10,28 @@ html,body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}   
+}  
+
+.session-form{
+    max-width: 320px;
+    margin: auto;
+    padding: 20px 50px 20px 50px;
+    background: tomato;
+    margin-top: 50px;
+}
+
+.session-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: black;
+    padding: 10px;
+}
+
+.session-nav a{
+    color: blue;
+    font-size: 1.5rem;
+}
 
 h2{
     margin-top: 50px;
@@ -186,6 +207,7 @@ input{
     padding: 30px;
 }
 .planets-detail button,
+.session-form form button,
 .send-planet form button{
     background: black;
     border: 0;
