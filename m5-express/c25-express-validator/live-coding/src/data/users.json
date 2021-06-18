@@ -1,16 +1,3 @@
 [
-  {
-    "name": "polbac",
-    "email": "polbac@gmail.com",
-    "password": "Polbac14@4",
-    "image": "/images/users/1623975763528.jpg",
-    "id": 0
-  },
-  {
-    "name": "polbac2",
-    "email": "polbac@gmail.com",
-    "password": "Polbac123@",
-    "image": "/images/users/1623975879691.jpg",
-    "id": 1
-  }
+  
 ]

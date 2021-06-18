@@ -12,6 +12,16 @@ html,body{
     box-sizing: border-box;
 }  
 
+.profile{
+    max-width: 600px;
+    margin: auto;
+    font-size: 2rem;
+    margin-top: 20px;
+    background:coral;
+    padding: 20px;
+    color: black;
+}
+
 .session-form{
     max-width: 320px;
     margin: auto;

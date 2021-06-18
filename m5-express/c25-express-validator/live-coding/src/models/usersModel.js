@@ -36,7 +36,7 @@ module.exports = {
     },
     findByField(field, value) {
         const users = this.readFile();
-        // Filtrar por el ID
+        // Filtrar por el [field]
         const userFound = users.find(user => user[field] == value);
         // Devolvemos el user
         return userFound;

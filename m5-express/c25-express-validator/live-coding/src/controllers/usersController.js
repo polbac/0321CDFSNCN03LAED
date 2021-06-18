@@ -1,6 +1,6 @@
+const fs = require('fs')
 const { validationResult } = require('express-validator')
 const usersModel = require('../models/usersModel')
-const fs = require('fs')
 
 const usersController = {
     login: (req, res) => {
@@ -9,21 +9,22 @@ const usersController = {
     
     processLogin: (req, res) => {
         const formValidation = validationResult(req)
-        
+        const oldValues = req.body
+
         if (!formValidation.isEmpty()) {
-            const oldValues = req.body
             return res.render('users/login', { oldValues, errors: formValidation.mapped() })
-          
         } 
 
-        // login ok!
-        res.send('ok! que hacemos?')
+        // y acá que anselmo?
+
+        res.redirect('/users/profile')
     },
     register: (req, res) => {
         res.render('users/register')
     },
     processRegister: (req, res) => {
         const formValidation = validationResult(req)
+        const oldValues = req.body
         
         if (!formValidation.isEmpty()) {
             // borrar imagen
@@ -34,13 +35,11 @@ const usersController = {
             
 
             // tenemos errores
-            const oldValues = req.body
             res.render('users/register', { oldValues, errors: formValidation.mapped() })
           return  
         } 
 
-
-        // Crear el objeto planeta
+        // Crear el objeto usuario
         const { name, email, password } = req.body;
 
         // dentro de req.file va a venir la información del archivo
@@ -60,6 +59,14 @@ const usersController = {
 
         res.redirect('/users/login');
     },
+
+    profile: (req, res) => {
+        res.render('users/profile')
+    },
+
+    logout: (req, res) => {
+        res.redirect('/')
+    }
   
 }
 

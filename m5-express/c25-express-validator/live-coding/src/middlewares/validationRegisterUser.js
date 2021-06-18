@@ -14,9 +14,7 @@ const validationRegisterUser = [
     body('password')
         .notEmpty()
         .withMessage('Por favor ingrese su password')
-        .bail()
-        .isStrongPassword()
-        .withMessage('No es muy seguro'),
+        .bail(),
     body('image')
         .custom((value, { req }) => {
             const { file } = req

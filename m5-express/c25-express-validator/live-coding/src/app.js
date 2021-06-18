@@ -4,15 +4,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const method = require('method-override');
-const notFoundMiddleware = require('./middlewares/notFound')
 
 const app = express();
 
-// middleware de aplicación
-app.use((req, res, next) => {
-  console.log('hola soy el primer middleware')
-  next()
-})
+// middlewares
+const notFoundMiddleware = require('./middlewares/notFound')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +20,6 @@ app.use(logger('dev'));
 // No olvidarse esto para que la data se envie correctamente desde un formulario
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 // home

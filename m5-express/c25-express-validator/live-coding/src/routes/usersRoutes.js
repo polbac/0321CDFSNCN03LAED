@@ -67,4 +67,6 @@ usersRoutes.post('/login', validationLoginUser, usersController.processLogin);
 usersRoutes.get('/register', usersController.register)
 usersRoutes.post('/register', upload.single('image'), validationRegisterUser, usersController.processRegister);
 
+usersRoutes.get('/profile', usersController.profile)
+
 module.exports = usersRoutes
