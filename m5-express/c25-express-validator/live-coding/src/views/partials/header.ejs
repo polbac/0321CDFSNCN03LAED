@@ -11,8 +11,12 @@
  </nav>
 
  <div class="session-nav">
-    <%- include('nav-guest') %> 
+     <% if (locals.logged) { %>
+        <%- include('nav-auth') %> 
+     <% } else {%>
+        <%- include('nav-guest') %> 
+    <% }%>
     
-    <%- include('nav-auth') %> 
+    
      
  </div>

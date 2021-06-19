@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const logger = require('morgan');
 const method = require('method-override');
 
@@ -15,7 +16,14 @@ app.use(session({
   secret: config.sessionSecret
 }))
 
+app.use(cookieParser())
+
+const cookiesSessionMiddleware = require('./middlewares/cookiesSessionMiddleware')
+const sessionToLocals = require('./middlewares/sessionToLocals')
 const notFoundMiddleware = require('./middlewares/notFound')
+
+app.use(cookiesSessionMiddleware)
+app.use(sessionToLocals)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

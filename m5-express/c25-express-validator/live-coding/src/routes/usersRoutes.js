@@ -70,5 +70,6 @@ usersRoutes.get('/register', guestMiddleware, usersController.register)
 usersRoutes.post('/register', guestMiddleware, upload.single('image'), validationRegisterUser, usersController.processRegister);
 
 usersRoutes.get('/profile', authMiddleware, usersController.profile)
+usersRoutes.get('/logout', authMiddleware, usersController.logout)
 
 module.exports = usersRoutes

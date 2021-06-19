@@ -2,6 +2,7 @@ const fs = require('fs')
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
 const usersModel = require('../models/usersModel')
+const { maxAgeUserCookie } = require('../config/config')
 
 const usersController = {
     login: (req, res) => {
@@ -17,7 +18,7 @@ const usersController = {
         } 
 
         // lo que viene del login
-        const { email } = req.body
+        const { email, remember } = req.body
         
         // le pedimos al modelo el usuario
         const user = usersModel.findByField('email', email)
@@ -30,6 +31,15 @@ const usersController = {
 
         // cargamos dentro de la sesión la propieda logged con el usuario (menos el password)
         req.session.logged = user
+
+        // guardamos un dato de nuestro usuario en la sesión (email, user_id)
+        if (remember) {
+            // clave
+            res.cookie('user', user.id, {
+                maxAge: maxAgeUserCookie
+            })
+        }
+
       
         // redirigimos al profile
         res.redirect('/users/profile')
@@ -85,6 +95,10 @@ const usersController = {
     },
 
     logout: (req, res) => {
+        // borrar session y cookie
+        req.session.destroy()
+        res.clearCookie('user')
+        
         res.redirect('/')
     }
   
