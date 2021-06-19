@@ -1,5 +1,6 @@
 const fs = require('fs')
 const { validationResult } = require('express-validator')
+const bcrypt = require('bcryptjs')
 const usersModel = require('../models/usersModel')
 
 const usersController = {
@@ -39,6 +40,8 @@ const usersController = {
           return  
         } 
 
+
+
         // Crear el objeto usuario
         const { name, email, password } = req.body;
 
@@ -48,10 +51,13 @@ const usersController = {
         // nuestra ruta al archivo
         const image = file.filename
 
+        // hashear el password
+        const hashPassword = bcrypt.hashSync(password)
+
         const user = {
             name,
             email,
-            password,
+            password: hashPassword,
             image: '/images/users/' + image,
         }
         

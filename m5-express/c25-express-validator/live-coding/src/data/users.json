@@ -1,3 +1,16 @@
 [
-  
+  {
+    "name": "pol",
+    "email": "pol@dh.com",
+    "password": "1234",
+    "image": "/images/users/1624061876175.jpeg",
+    "id": 0
+  },
+  {
+    "name": "pp",
+    "email": "pp@oo.com",
+    "password": "$2a$10$2pqY/JThsZSLmvXrouDA1uuDXn1Mqtj6yoxJett3rIsMOSAHw7p82",
+    "image": "/images/users/1624062743536.jpeg",
+    "id": 1
+  }
 ]

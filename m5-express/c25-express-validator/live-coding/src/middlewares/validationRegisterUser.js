@@ -1,5 +1,5 @@
 const { body } = require('express-validator')
-
+const userModel = require('../models/usersModel')
 const { isFileImage } = require('../helpers/file')
 
 const validationRegisterUser = [
@@ -10,11 +10,25 @@ const validationRegisterUser = [
         .notEmpty()
         .withMessage('Por favor ingrese su e-mail')
         .isEmail()
-        .withMessage('No es en formato e-mail'),
+        .withMessage('No es en formato e-mail')
+        .bail()
+        .custom((email) => {
+            const userFound = userModel.findByField('email', email)
+
+            if (userFound) {
+                return false
+            }
+
+            return true
+        })
+        .withMessage('El usuario ya existe'),
     body('password')
         .notEmpty()
         .withMessage('Por favor ingrese su password')
-        .bail(),
+        .bail()
+        /* .isStrongPassword()
+        .withMessage('Por favor ingrese un password etc') */
+        ,
     body('image')
         .custom((value, { req }) => {
             const { file } = req
