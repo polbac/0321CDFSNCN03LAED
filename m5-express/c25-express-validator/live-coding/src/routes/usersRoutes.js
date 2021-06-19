@@ -7,6 +7,8 @@ const { isFileImage } = require('../helpers/file')
 
 const validationLoginUser = require('../middlewares/validationLoginUser')
 const validationRegisterUser = require('../middlewares/validationRegisterUser')
+const guestMiddleware = require('../middlewares/guestMiddleware')
+const authMiddleware = require('../middlewares/authMiddleware')
 
 // destino donde guardar el archivo
 // nombre del archivo
@@ -61,12 +63,12 @@ const upload = multer({ storage, fileFilter })
 
 const usersController = require('../controllers/usersController')
 
-usersRoutes.get('/login', usersController.login)
-usersRoutes.post('/login', validationLoginUser, usersController.processLogin);
+usersRoutes.get('/login', guestMiddleware, usersController.login)
+usersRoutes.post('/login', guestMiddleware, validationLoginUser, usersController.processLogin);
 
-usersRoutes.get('/register', usersController.register)
-usersRoutes.post('/register', upload.single('image'), validationRegisterUser, usersController.processRegister);
+usersRoutes.get('/register', guestMiddleware, usersController.register)
+usersRoutes.post('/register', guestMiddleware, upload.single('image'), validationRegisterUser, usersController.processRegister);
 
-usersRoutes.get('/profile', usersController.profile)
+usersRoutes.get('/profile', authMiddleware, usersController.profile)
 
 module.exports = usersRoutes
