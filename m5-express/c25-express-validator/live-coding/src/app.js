@@ -1,13 +1,20 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
+const session = require('express-session')
 const logger = require('morgan');
 const method = require('method-override');
+
+const config = require('./config/config')
 
 const app = express();
 
 // middlewares
+
+app.use(session({
+  secret: config.sessionSecret
+}))
+
 const notFoundMiddleware = require('./middlewares/notFound')
 
 // view engine setup
