@@ -5,5 +5,12 @@
     "password": "$2a$10$Rnrko4f2mKmVf5X0KeD9COmBx1M0MOsSiRrGrM3O0jvXhZjPrpJ2a",
     "image": "/images/users/1624064213980.jpeg",
     "id": 0
+  },
+  {
+    "name": "gonza",
+    "email": "gonza@gonza.com",
+    "password": "$2a$10$Rnrko4f2mKmVf5X0KeD9COmBx1M0MOsSiRrGrM3O0jvXhZjPrpJ2a",
+    "image": "/images/users/1624064213980.jpeg",
+    "id": 1
   }
 ]
