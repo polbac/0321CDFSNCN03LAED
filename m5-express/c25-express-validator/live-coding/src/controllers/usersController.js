@@ -36,7 +36,7 @@ const usersController = {
         if (remember) {
             // clave
             res.cookie('user', user.id, {
-                maxAge: maxAgeUserCookie
+                maxAge: maxAgeUserCookie,
             })
         }
 
