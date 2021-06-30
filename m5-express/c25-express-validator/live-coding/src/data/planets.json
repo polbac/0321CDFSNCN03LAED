@@ -7,9 +7,9 @@
   },
   {
     "id": 3,
-    "image": "/images/tierra.jpeg",
     "name": "Tierra",
-    "rings": "no"
+    "rings": "yes",
+    "image": "/images/tierra.jpeg"
   },
   {
     "id": 4,

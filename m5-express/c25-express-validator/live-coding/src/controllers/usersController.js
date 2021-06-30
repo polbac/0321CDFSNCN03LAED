@@ -37,6 +37,8 @@ const usersController = {
             // clave
             res.cookie('user', user.id, {
                 maxAge: maxAgeUserCookie,
+                // pasamos esta propiedad para que firme la cookie
+                signed: true,    
             })
         }
 

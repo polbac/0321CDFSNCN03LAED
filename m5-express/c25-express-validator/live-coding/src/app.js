@@ -6,17 +6,17 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan');
 const method = require('method-override');
 
-const config = require('./config/config')
+const { sessionSecret, cookiesSecret} = require('./config/config')
 
 const app = express();
 
 // middlewares
 
 app.use(session({
-  secret: config.sessionSecret
+  secret: sessionSecret
 }))
 
-app.use(cookieParser())
+app.use(cookieParser(cookiesSecret))
 
 const cookiesSessionMiddleware = require('./middlewares/cookiesSessionMiddleware')
 const sessionToLocals = require('./middlewares/sessionToLocals')
