@@ -1,0 +1,23 @@
+[
+  {
+    "name": "pol",
+    "email": "pol@pol.com",
+    "password": "$2a$10$Rnrko4f2mKmVf5X0KeD9COmBx1M0MOsSiRrGrM3O0jvXhZjPrpJ2a",
+    "image": "/images/users/1624064213980.jpeg",
+    "id": 0
+  },
+  {
+    "name": "gonza",
+    "email": "gonza@gonza.com",
+    "password": "$2a$10$Rnrko4f2mKmVf5X0KeD9COmBx1M0MOsSiRrGrM3O0jvXhZjPrpJ2a",
+    "image": "/images/users/1624064213980.jpeg",
+    "id": 1
+  },
+  {
+    "name": "mars",
+    "email": "mars@mars.com",
+    "password": "$2a$10$79B6nRFt60fBX2uXcRsVVunGIJU1cod3.DzGl9afL7VLnX8pguhny",
+    "image": "/images/users/1624580374583.jpeg",
+    "id": 2
+  }
+]
