@@ -1,6 +1,6 @@
 # C31 - Instalando Sequelize & Asincronismo
 
-<iframe src='https://gfycat.com/ifr/GrouchyPointlessGiraffe' frameborder='0' scrolling='no' allowfullscreen width='640' height='524'></iframe>
+<img src="https://miro.medium.com/max/2800/0*cS1zGjkq8fRA5oVh.jpeg" width="400">
 
 ## Anuncios
 
