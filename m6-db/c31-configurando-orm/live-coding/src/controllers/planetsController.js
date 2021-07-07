@@ -1,15 +1,21 @@
 const { validationResult } = require('express-validator')
 const planetsModel = require('../models/planetsModel')
 const fs = require('fs')
+const { Planet } = require('../database/models')
+const { Op } = require('sequelize')
 
 const planetsController = {
     list: (req, res) => {
-        const planetList = planetsModel.findAll()
 
-        // aca leo el json y se lo paso al template
-        // res.render('planets/list', { planetList: planetList })
-        res.render('planets/list', { planetList })
+        Planet.findAll({
+            order: [
+                ['name', 'ASC'],
+            ],
+        })
+            .then(planetList => {
+                res.render('planets/list', { planetList })
         
+            })
     },
     detail: (req, res) => {
         // levantamos el id desde la url (parámetro)
@@ -17,9 +23,12 @@ const planetsController = {
         //const id = req.params.id
         const { id } = req.params
         
-        const planetDetail = planetsModel.findByPk(id)
+        Planet.findByPk(id)
+            .then(planetDetail => {
+                res.render('planets/detail', { planetDetail })
+            })
         
-        res.render('planets/detail', { planetDetail })
+        
     },
     formNew: (req, res) => {
         res.render('planets/new')

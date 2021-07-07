@@ -4,14 +4,18 @@
 
 ## Anuncios
 
+- Correcciones (grupo 5 😩)
+- Co-learning Jueves 20 a 22
+- Fecha entrega Sprint (16 sale sprint 6to)
 ## Promises
-
+```
 .then()
 .catch()
 Promise.all()
-
+```
 ## Configurando Sequelize
 
-## Ejercitación:
+## Ejercitación (Opciones)
 
-Trabajar con mobies_db o configurar sequelize en PI.
+A) Trabajar con mobies_db (playground)
+B) Configurar sequelize en PI.
