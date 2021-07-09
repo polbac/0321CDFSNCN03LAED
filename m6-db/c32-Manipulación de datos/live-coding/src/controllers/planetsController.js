@@ -57,7 +57,11 @@ const planetsController = {
           return  
         } 
         // Crear el objeto planeta
-        const { name, rings } = req.body;
+        const { name, hasRings, discovered, diameter, galaxy } = req.body;
+
+        // Normalizo hasRings
+
+        const hasRingsNormalized = hasRings == 'true' ? true : false;
         
         // dentro de req.file va a venir la información del archivo
         const { file } = req
@@ -67,7 +71,7 @@ const planetsController = {
         
         const planet = {
             name: name,
-            hasRings: hasRings,
+            hasRings: hasRingsNormalized,
             discovered: discovered,
             diameter: diameter,
             galaxy_id: galaxy,
