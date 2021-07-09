@@ -56,22 +56,25 @@ const planetsController = {
             res.render('planets/new', { oldValues, errors: formValidation.mapped() })
           return  
         } 
-
         // Crear el objeto planeta
         const { name, rings } = req.body;
-
+        
         // dentro de req.file va a venir la información del archivo
         const { file } = req
         
         // nuestra ruta al archivo
         const image = file.filename
-
+        
         const planet = {
             name: name,
-            rings: rings,
+            hasRings: hasRings,
+            discovered: discovered,
+            diameter: diameter,
+            galaxy_id: galaxy,
             image: '/images/' + image,
         }
-
+        return res.send(planet);
+        
         // FIXME Modificar el método de creación
         const planetCreated = planetsModel.create(planet);
 

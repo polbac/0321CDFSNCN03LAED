@@ -17,9 +17,11 @@ module.exports = (sequelize, DataType) => {
         hasRings: {
             type: DataType.BOOLEAN
         },
+        discovered: DataType.DATE,
         image: {
             type: DataType.STRING
         },
+        galaxy_id: DataType.INTEGER,
 
     }
     
