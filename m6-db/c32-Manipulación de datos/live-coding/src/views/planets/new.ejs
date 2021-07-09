@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+       
+        <section class="send-planet">
+            <!-- 
+                action: la ruta donde vamos a mandar nuestros campos 
+            -->
+            <form action="/planets/create" method="POST" enctype="multipart/form-data">
+
+                <div class="input-container">
+                    <label for="name">Ingrese su nombre</label>
+                    <input type="text" name="name" id="name" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.name %>"/>
+                    
+                    <% if (locals.errors && errors.name) { %>
+                        <p class='msg-error'><%= errors.name.msg %></p>
+                    <% } %>
+
+                    <!-- <span class='msg-error'><%= /* locals.errors && errors.name ? errors.name.msg : '' */ %></span> -->
+                </div>
+
+                <div class="input-container">
+                    <label for="rings">¿Su planeta tiene anillos?</label>
+                    <div class="<%= (locals.errors && errors.rings) ? 'input-error' : '' %>">
+                        <input type="radio" name="rings" id="rings" value="yes" <%= (locals.oldValues && oldValues.rings === 'yes') ? 'checked' : '' %>/> Si
+                        <input type="radio" name="rings" id="rings" value="no" <%= (locals.oldValues && oldValues.rings === 'no') ? 'checked' : '' %> /> No
+                    </div>
+                    <% if (locals.errors && errors.rings) { %>
+                        <p class='msg-error'><%= errors.rings.msg %></p>
+                    <% } %>
+                </div>
+
+                <div class="input-container">
+                    <label for="image">Imágen</label>
+                    <input type="file" name="image" id="image" />
+                    <% if (locals.errors && errors.image) { %>
+                        <p class='msg-error'><%= errors.image.msg %></p>
+                    <% } %>
+
+                </div>
+
+                <div class="input-container">
+                    <button type="submit">CREAR</button>
+                </div>
+
+            </form>
+        </section>
+
+
+   </main>
+
+   <div id="space-x-banner"></div>
+
+
+</body>
+</html> 
