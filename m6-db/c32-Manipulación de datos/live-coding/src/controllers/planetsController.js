@@ -77,12 +77,10 @@ const planetsController = {
             galaxy_id: galaxy,
             image: '/images/' + image,
         }
-        return res.send(planet);
         
         // FIXME Modificar el método de creación
         const planetCreated = planetsModel.create(planet);
 
-        res.redirect('/planets/detail/' + planetCreated.id);
     },
     edit: (req, res) => {
         // FIXME Modificar el método de búsqueda
