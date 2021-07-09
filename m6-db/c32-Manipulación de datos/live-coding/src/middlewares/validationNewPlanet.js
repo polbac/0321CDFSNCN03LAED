@@ -11,7 +11,7 @@ const validationNewPlanet = [
         .isLength({ min: 3 })
         .withMessage('Por favor un nombre más largo'),
         // como es la última no usamos bail()
-    body('rings')
+    body('hasRings')
         .notEmpty().withMessage('Por favor seleccione si tiene anillos'),
     body('image')
         .custom((value, { req }) => {

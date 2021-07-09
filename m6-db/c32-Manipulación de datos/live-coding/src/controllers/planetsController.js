@@ -1,7 +1,7 @@
 const { validationResult } = require('express-validator')
 const planetsModel = require('../models/planetsModel')
 const fs = require('fs')
-const { Planet } = require('../database/models')
+const { Planet, Galaxy } = require('../database/models')
 const { Op } = require('sequelize')
 
 const planetsController = {
@@ -31,7 +31,10 @@ const planetsController = {
         
     },
     formNew: (req, res) => {
-        res.render('planets/new')
+        Galaxy.findAll()
+            .then(galaxies => {
+                res.render('planets/new', { galaxies })
+            })
     },
     store: (req, res) => {
         const formValidation = validationResult(req)
@@ -53,7 +56,6 @@ const planetsController = {
             res.render('planets/new', { oldValues, errors: formValidation.mapped() })
           return  
         } 
-
 
         // Crear el objeto planeta
         const { name, rings } = req.body;
