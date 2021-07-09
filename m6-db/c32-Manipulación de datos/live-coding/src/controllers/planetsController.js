@@ -84,18 +84,20 @@ const planetsController = {
     },
     edit: (req, res) => {
         // FIXME Modificar el método de búsqueda
-        const planet = planetsModel.findByPk(req.params.id);
+        Planet.findByPk(req.params.id)
+            .then(planet => {
+                res.render('planets/edit', {
+                    planet
+                });
+            })
 
-        res.render('planets/edit', {
-            planet
-        });
     },
     update: (req, res) => {
-        const data = req.body;
         const { id } = req.params;
         // el planeta original
         // FIXME Modificar el método de búsqueda
         const planetOriginal = planetsModel.findByPk(id)
+
         // la imagen original: planetOriginal.image
 
         // dentro de req.file va a venir la información del archivo
@@ -111,12 +113,23 @@ const planetsController = {
             image = planetOriginal.image
         }
 
-        data.image = image
+        const { name, hasRings } = req.body;
+
+        // Normalizo hasRings
+
+        const hasRingsNormalized = hasRings == 'true' ? true : false;
+
+        const propertiesToEdit = {
+            name: name,
+            hasRings: hasRingsNormalized,
+            image: image
+        }
 
         // FIXME Modificar el método de modificación
-        planetsModel.update(data, id);
+        planetsModel.update(propertiesToEdit, id)
 
         res.redirect('/planets/detail/' + id);
+        
     },
     destroy: (req, res) => {
         const id = req.params.id;

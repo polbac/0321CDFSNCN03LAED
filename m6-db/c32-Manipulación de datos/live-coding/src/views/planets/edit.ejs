@@ -19,9 +19,9 @@
                 </div>
 
                 <div class="input-container">
-                    <label for="rings">¿Su planeta tiene anillos?</label>
-                    <input type="radio" name="rings" id="rings" value="yes" <%= planet.rings == 'yes' ? 'checked' : '' %>  /> Si
-                    <input type="radio" name="rings" id="rings" value="no" <%= planet.rings == 'no' ? 'checked' : '' %> /> No
+                    <label for="hasRings">¿Su planeta tiene anillos?</label>
+                    <input type="radio" name="hasRings" id="hasRings" value="true" <%= planet.hasRings == 1 ? 'checked' : '' %>  /> Si
+                    <input type="radio" name="hasRings" id="hasRings" value="false" <%= planet.hasRings == 0 ? 'checked' : '' %> /> No
                 </div>
 
                 <div class="input-container">

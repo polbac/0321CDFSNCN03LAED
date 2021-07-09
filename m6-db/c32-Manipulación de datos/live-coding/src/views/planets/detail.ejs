@@ -16,7 +16,7 @@
            <% } else { %>
 
             <h2><%= planetDetail.name %></h2>
-            <h3>Tiene anillos: <%= planetDetail.hasRings ? 'Yes' : 'No' %> </h3>
+            <h3>Tiene anillos: <%= planetDetail.hasRings == 1 ? 'Yes' : 'No' %> </h3>
             <img src="<%= planetDetail.image %>" width="80%"/>
             
             <% } %>
