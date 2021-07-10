@@ -78,12 +78,12 @@ const planetsController = {
             image: '/images/' + image,
         }
         
-        // FIXME Modificar el método de creación
-        const planetCreated = planetsModel.create(planet);
-
+        Planet.create(planet)
+            .then((planetCreated) => {
+                res.redirect('/planets/detail/' + planetCreated.id);
+            })
     },
     edit: (req, res) => {
-        // FIXME Modificar el método de búsqueda
         Planet.findByPk(req.params.id)
             .then(planet => {
                 res.render('planets/edit', {
@@ -95,49 +95,60 @@ const planetsController = {
     update: (req, res) => {
         const { id } = req.params;
         // el planeta original
-        // FIXME Modificar el método de búsqueda
-        const planetOriginal = planetsModel.findByPk(id)
-
-        // la imagen original: planetOriginal.image
-
-        // dentro de req.file va a venir la información del archivo
-        const { file } = req
+        Planet.findByPk(id)
+            .then(planetOriginal => {
+                // la imagen original: planetOriginal.image
         
-        /* Si viene una imagen nueva, cargar la imagen nueva
-        sino poner la original */
-        let image
+                // dentro de req.file va a venir la información del archivo
+                const { file } = req
+                
+                /* Si viene una imagen nueva, cargar la imagen nueva
+                sino poner la original */
+                let image
+        
+                if (file) {
+                    image = '/images/' + file.filename
+                } else {
+                    image = planetOriginal.image
+                }
+        
+                const { name, hasRings } = req.body;
+        
+                // Normalizo hasRings
+        
+                const hasRingsNormalized = hasRings == 'true' ? true : false;
+        
+                const propertiesToEdit = {
+                    name: name,
+                    hasRings: hasRingsNormalized,
+                    image: image
+                }
+        
+                Planet.update(propertiesToEdit, {
+                    where: {
+                        id
+                    }
+                })
+                    .then(() => {
+                        res.redirect('/planets/detail/' + id);
+                    })
+        
+            })
 
-        if (file) {
-            image = '/images/' + file.filename
-        } else {
-            image = planetOriginal.image
-        }
-
-        const { name, hasRings } = req.body;
-
-        // Normalizo hasRings
-
-        const hasRingsNormalized = hasRings == 'true' ? true : false;
-
-        const propertiesToEdit = {
-            name: name,
-            hasRings: hasRingsNormalized,
-            image: image
-        }
-
-        // FIXME Modificar el método de modificación
-        planetsModel.update(propertiesToEdit, id)
-
-        res.redirect('/planets/detail/' + id);
         
     },
     destroy: (req, res) => {
         const id = req.params.id;
-        
-        // FIXME Modificar el método de eliminación
-        planetsModel.destroy(id);
+    
+        Planet.destroy({
+            where: {
+                id
+            }
+        })
+            .then(() => {
+                res.redirect('/planets/list');
+            })
 
-        res.redirect('/planets/list');
     }
 }
 

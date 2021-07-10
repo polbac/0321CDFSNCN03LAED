@@ -2,6 +2,7 @@ const fs = require('fs')
 const { validationResult } = require('express-validator')
 const bcrypt = require('bcryptjs')
 const usersModel = require('../models/usersModel')
+const { User } = require('../database/models'); 
 const { maxAgeUserCookie } = require('../config/config')
 
 const usersController = {
@@ -21,31 +22,37 @@ const usersController = {
         const { email, remember } = req.body
         
         // le pedimos al modelo el usuario
-        // FIXME Modificar el método de búsqueda
-        const user = usersModel.findByField('email', email)
-        //req.session = {}
-
-        // cargamos los datos del usuario en la sesión
+        User.findOne({
+            where: {
+                email
+            }
+        })
+            .then((user) => {
+                //req.session = {}
         
-        // le sacamos el password
-        delete user.password
-
-        // cargamos dentro de la sesión la propieda logged con el usuario (menos el password)
-        req.session.logged = user
-
-        // guardamos un dato de nuestro usuario en la sesión (email, user_id)
-        if (remember) {
-            // clave
-            res.cookie('user', user.id, {
-                maxAge: maxAgeUserCookie,
-                // pasamos esta propiedad para que firme la cookie
-                signed: true,    
+                // cargamos los datos del usuario en la sesión
+                
+                // le sacamos el password
+                delete user.password
+        
+                // cargamos dentro de la sesión la propieda logged con el usuario (menos el password)
+                req.session.logged = user
+        
+                // guardamos un dato de nuestro usuario en la sesión (email, user_id)
+                if (remember) {
+                    // clave
+                    res.cookie('user', user.id, {
+                        maxAge: maxAgeUserCookie,
+                        // pasamos esta propiedad para que firme la cookie
+                        signed: true,    
+                    })
+                }
+        
+              
+                // redirigimos al profile
+                res.redirect('/users/profile')
             })
-        }
-
-      
-        // redirigimos al profile
-        res.redirect('/users/profile')
+            .catch(err => console.log('Entre en el catch', err))
     },
     register: (req, res) => {
         res.render('users/register')
@@ -88,10 +95,11 @@ const usersController = {
             image: '/images/users/' + image,
         }
         
-        // FIXME Modificar el método de creación
-        usersModel.create(user);
+        User.create(user)
+            .then(() => {
+                res.redirect('/users/login');
+            })
 
-        res.redirect('/users/login');
     },
 
     profile: (req, res) => {

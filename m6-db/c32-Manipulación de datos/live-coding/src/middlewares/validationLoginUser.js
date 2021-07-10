@@ -1,6 +1,7 @@
 const { body } = require('express-validator')
 const bcrypt = require('bcryptjs')
 const userModel = require('../models/usersModel')
+const { User } = require('../database/models');
 
 const validationLoginUser = [
     body('email')
@@ -16,23 +17,28 @@ const validationLoginUser = [
             const { email, password } = req.body
             
             // encontrar un usuario con el email
-            // FIXME Modificar el método de búsqueda
-            const userFound = userModel.findByField('email', email)
-
-            // chequear que userFound exista
-            if (userFound) {
-
-                // comparar contraseñas
-                const passwordMatch = bcrypt.compareSync(password, userFound.password)
-
-                if (passwordMatch) {
-                    return true
+            return User.findOne({
+                where: {
+                    email
                 }
-            }
+            })
+                .then(userFound => {
+                    // chequear que userFound exista
+                    if (userFound) {
+        
+                        // comparar contraseñas
+                        const passwordMatch = bcrypt.compareSync(password, userFound.password)
+        
+                        if (!passwordMatch) {
+                            return Promise.reject('El usuario o la contraseña son inválidas');
+                        }
+                    } else {
+                        return Promise.reject('El usuario o la contraseña son inválidas');
+                    }
+        
+                })
 
-            return false
-        })
-        .withMessage('El usuario o la contraseña son inválidas'),
+        }),
 ]
 
 module.exports = validationLoginUser

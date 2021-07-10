@@ -1,4 +1,6 @@
 const usersModel = require('../models/usersModel')
+const { User } = require('../database/models');
+
 module.exports = (req, res, next) => {
     // chequeamos si existe cookie
     // Si existe buscamos en el modelo el usuario
@@ -6,13 +8,16 @@ module.exports = (req, res, next) => {
     const userCookie = req.signedCookies.user
     
     if (userCookie) {
-        // FIXME Modificar el método de búsqueda
-        const user = usersModel.findByPk(userCookie)
+        User.findByPk(userCookie)
+            .then(user => {
+                delete user.password
+                // pasar a la sesión
+                req.session.logged = user
+                next();
+            })
         
-        delete user.password
-        // pasar a la sesión
-        req.session.logged = user
+    } else {
+        next()
     }
 
-    next()
 }
