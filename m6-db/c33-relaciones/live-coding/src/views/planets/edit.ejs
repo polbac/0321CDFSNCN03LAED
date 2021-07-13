@@ -35,6 +35,16 @@
                 </div>
 
                 <div class="input-container">
+                    <label for="colors">Seleccione los colores</label>
+                    <select name="colors" id="colors" style="width: 100%;">
+                        <% colors.forEach(color => { %>
+                            <option value="<%= color.id %>"><%= color.name %></option>
+
+                        <% }) %>
+                    </select>
+                </div>
+
+                <div class="input-container">
                     <label for="life">Imágen</label>
                     <img src="<%= planet.image %>" width="300" />
                     <input type="file" name="image" id="image" />

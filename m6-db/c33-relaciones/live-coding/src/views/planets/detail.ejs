@@ -16,9 +16,26 @@
            <% } else { %>
 
             <h2><%= planetDetail.name %></h2>
-            <h3>Tiene anillos: <%= planetDetail.hasRings == 1 ? 'Yes' : 'No' %> </h3>
-            <img src="<%= planetDetail.image %>" width="80%"/>
+
             
+
+            <table width="100%" border="1">
+                <tr>
+                    <td>Galaxia</td>
+                    <td><%= planetDetail.galaxy_id %> (id)</td>
+                </tr>
+                <tr>
+                    <td>Anillos</td>
+                    <td><%= planetDetail.hasRings == 1 ? 'Yes' : 'No' %></td>
+                </tr>
+                <tr>
+                    <td>Colores</td>
+                    <td>No sabemos</td>
+                </tr>
+            </table>
+
+            <img src="<%= planetDetail.image %>" width="80%"/>
+          
             <% } %>
             
             <div class="actions">

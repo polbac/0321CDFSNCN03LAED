@@ -1,7 +1,6 @@
 const { validationResult } = require('express-validator')
-const planetsModel = require('../models/planetsModel')
 const fs = require('fs')
-const { Planet, Galaxy } = require('../database/models')
+const { Planet, Galaxy, Color } = require('../database/models')
 const { Op } = require('sequelize')
 
 const planetsController = {
@@ -87,17 +86,23 @@ const planetsController = {
     edit: (req, res) => {
         const { id } = req.params
 
-        Promise.all([Planet.findByPk(id), Galaxy.findAll()])
-            .then(([planet, galaxies]) => {
+        Promise.all([
+            Planet.findByPk(id), 
+            Galaxy.findAll(),
+            Color.findAll(),
+        ])
+            .then(([planet, galaxies, colors]) => {
                 res.render('planets/edit', {
                     planet,
-                    galaxies
+                    galaxies,
+                    colors
                 });
             })
 
     },
     update: (req, res) => {
         const { id } = req.params;
+        
         // el planeta original
         Planet.findByPk(id)
             .then(planetOriginal => {
@@ -116,7 +121,7 @@ const planetsController = {
                     image = planetOriginal.image
                 }
         
-                const { name, hasRings } = req.body;
+                const { name, hasRings, galaxy } = req.body;
         
                 // Normalizo hasRings
         
@@ -125,7 +130,8 @@ const planetsController = {
                 const propertiesToEdit = {
                     name: name,
                     hasRings: hasRingsNormalized,
-                    image: image
+                    image: image,
+                    galaxy_id: galaxy
                 }
         
                 Planet.update(propertiesToEdit, {

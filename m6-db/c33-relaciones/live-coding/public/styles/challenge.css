@@ -12,6 +12,10 @@ html,body{
     box-sizing: border-box;
 }  
 
+table{
+    font-size: 1.75rem;
+    border:1px solid pink;
+}
 .profile{
     max-width: 600px;
     margin: auto;
