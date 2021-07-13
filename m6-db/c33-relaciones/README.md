@@ -1,5 +1,11 @@
 # C33 / Relaciones y CRUD
 
+<img src="https://i.imgur.com/A5dLn42.gif" width="350" />
+
+## Avisos
+
+- Disclaimer
+- Próxima clase taller
 
 ## Async / Await
 
@@ -13,22 +19,38 @@ async function getUsers() {
 ```
 Model.associate = model => {
     // relaciones
-    return model
 }
 ```
 
 ### hasMany / belongsTo
 
 ```
-Model1.belongsTo(Model2)
-Model2.hasMany(Model1)
+Model1.belongsTo(Model2, {
+    as: "alias",
+    foreignKey: "foreignKey"
+})
+Model2.hasMany(Model1, {
+    as: "alias",
+    foreignKey: "foreignKey"
+})
 ```
 
 ### belongsToMany / belongsToMany
 
 ```
-Model1.belongsToMany(Model2)
-Model2.belongsToMany(Model1)
+Model1.belongsToMany(Model2, {
+    as: "alias",
+    through: "tabla_intermedia",
+    foreignKey: "foreign_key_en_tabla_intermedia",
+    otherKey: "otra_foreign_key_en_tabla_intermedia",
+})
+
+Model2.belongsToMany(Model1, {
+    as: "alias",
+    through: "tabla_intermedia",
+    foreignKey: "foreign_key_en_tabla_intermedia",
+    otherKey: "otra_foreign_key_en_tabla_intermedia",
+})
 ```
 
 
