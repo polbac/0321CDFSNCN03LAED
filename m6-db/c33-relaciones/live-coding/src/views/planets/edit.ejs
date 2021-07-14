@@ -36,7 +36,7 @@
 
                 <div class="input-container">
                     <label for="colors">Seleccione los colores</label>
-                    <select name="colors" id="colors" style="width: 100%;">
+                    <select name="colors" id="colors" style="width: 100%;" multiple>
                         <% colors.forEach(color => { %>
                             <option value="<%= color.id %>"><%= color.name %></option>
 

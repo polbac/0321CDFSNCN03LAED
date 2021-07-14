@@ -31,6 +31,24 @@ module.exports = (sequelize, DataType) => {
     }
     
     const PlanetModel = sequelize.define(alias, cols, config)
+    
+    PlanetModel.associate = models => {
+        PlanetModel.belongsTo(models.Galaxy, {
+            as: 'galaxy',
+            foreignKey: 'galaxy_id'
+        });
+
+        PlanetModel.belongsToMany(models.Color, {
+            as: 'colors',
+            through: 'color_planet',
+            foreignKey: 'planet_id', // fk de planet dentro de la tabla pivote
+            otherKey: 'color_id',
+            timestamps: false, // tabla pivot
+        })
+    }
+
+    
+
 
     return PlanetModel
 }           

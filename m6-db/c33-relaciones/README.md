@@ -6,6 +6,8 @@
 
 - Disclaimer
 - Próxima clase taller
+- Colearning
+- Juntada con grupos
 
 ## Async / Await
 

@@ -13,30 +13,33 @@ const validationLoginUser = [
         .notEmpty()
         .withMessage('Por favor ingrese su password')
         .bail()
-        .custom((value, { req }) => {
+        .custom(async (value, { req }) => {
             const { email, password } = req.body
             
             // encontrar un usuario con el email
-            return User.findOne({
+            const userFound = await User.findOne({
                 where: {
                     email
                 }
             })
-                .then(userFound => {
-                    // chequear que userFound exista
-                    if (userFound) {
-        
-                        // comparar contraseñas
-                        const passwordMatch = bcrypt.compareSync(password, userFound.password)
-        
-                        if (!passwordMatch) {
-                            return Promise.reject('El usuario o la contraseña son inválidas');
-                        }
-                    } else {
-                        return Promise.reject('El usuario o la contraseña son inválidas');
-                    }
-        
-                })
+
+            // chequear que userFound exista
+            if (userFound) {
+
+                // comparar contraseñas
+                const passwordMatch = bcrypt.compareSync(password, userFound.password)
+
+                if (!passwordMatch) {
+                    return Promise.reject('El usuario o la contraseña son inválidas');
+                }
+
+                return true
+                
+            } else {
+                return Promise.reject('El usuario o la contraseña son inválidas');
+            }
+
+            
 
         }),
 ]

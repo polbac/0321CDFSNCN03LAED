@@ -4,37 +4,39 @@ const { Planet, Galaxy, Color } = require('../database/models')
 const { Op } = require('sequelize')
 
 const planetsController = {
-    list: (req, res) => {
+    list: async (req, res) => {
 
-        Planet.findAll({
+        const planetList = await Planet.findAll({
             order: [
                 ['name', 'ASC'],
             ],
         })
-            .then(planetList => {
-                res.render('planets/list', { planetList })
         
-            })
+        res.render('planets/list', { planetList })
     },
-    detail: (req, res) => {
+    detail: async (req, res) => {
         // levantamos el id desde la url (parámetro)
         
         //const id = req.params.id
         const { id } = req.params
 
-        
-        Promise.all([Planet.findByPk(id), Galaxy.findAll()])
-            .then(([planetDetail, galaxies]) => {
-                res.render('planets/detail', { planetDetail, galaxies })
-            })
+        const planetDetail = await Planet.findByPk(id, {
+            include: [{
+                association: 'galaxy',
+            },
+            {
+                association: 'colors',
+            }]
+            /* include: ['galaxy'] */
+        })
+        const galaxies = await Galaxy.findAll()
+        res.render('planets/detail', { planetDetail, galaxies })
         
         
     },
-    formNew: (req, res) => {
-        Galaxy.findAll()
-            .then(galaxies => {
-                res.render('planets/new', { galaxies })
-            })
+    formNew: async (req, res) => {
+        const galaxies = await Galaxy.findAll()
+        res.render('planets/new', { galaxies })
     },
     store: (req, res) => {
         const formValidation = validationResult(req)
@@ -83,67 +85,75 @@ const planetsController = {
                 res.redirect('/planets/detail/' + planetCreated.id);
             })
     },
-    edit: (req, res) => {
+    edit: async (req, res) => {
         const { id } = req.params
 
-        Promise.all([
-            Planet.findByPk(id), 
-            Galaxy.findAll(),
-            Color.findAll(),
-        ])
-            .then(([planet, galaxies, colors]) => {
-                res.render('planets/edit', {
-                    planet,
-                    galaxies,
-                    colors
-                });
-            })
+        const planet = await Planet.findByPk(id)
+        const galaxies = await Galaxy.findAll()
+        const colors = await Color.findAll()
+
+        res.render('planets/edit', {
+            planet,
+            galaxies,
+            colors
+        });
 
     },
-    update: (req, res) => {
+    update: async (req, res) => {
         const { id } = req.params;
         
         // el planeta original
-        Planet.findByPk(id)
-            .then(planetOriginal => {
-                // la imagen original: planetOriginal.image
+        const planetOriginal = await Planet.findByPk(id)
+
+        // la imagen original: planetOriginal.image
+
+        // dentro de req.file va a venir la información del archivo
+        const { file } = req
         
-                // dentro de req.file va a venir la información del archivo
-                const { file } = req
-                
-                /* Si viene una imagen nueva, cargar la imagen nueva
-                sino poner la original */
-                let image
-        
-                if (file) {
-                    image = '/images/' + file.filename
-                } else {
-                    image = planetOriginal.image
+        /* Si viene una imagen nueva, cargar la imagen nueva
+        sino poner la original */
+        let image
+
+        if (file) {
+            image = '/images/' + file.filename
+        } else {
+            image = planetOriginal.image
+        }
+
+        const { name, hasRings, galaxy, colors } = req.body;
+
+        // Normalizo colores
+        // Array.isArray() -> boolean si es array
+        /* const colorsId = Array.isArray(colors) ? colors : [colors]
+
+        const colorInstances = await Color.findAll({
+            where: {
+                id: {
+                    [Op.in]: colorsId, 
                 }
+            }
+        }) */
+
+        planetOriginal.setColors(colors)
+
+        const hasRingsNormalized = hasRings == 'true' ? true : false;
+
+        const propertiesToEdit = {
+            name: name,
+            hasRings: hasRingsNormalized,
+            image: image,
+            galaxy_id: galaxy
+        }
+
+        await Planet.update(propertiesToEdit, {
+            where: {
+                id
+            }
+        })
         
-                const { name, hasRings, galaxy } = req.body;
+        res.redirect('/planets/detail/' + id);
         
-                // Normalizo hasRings
-        
-                const hasRingsNormalized = hasRings == 'true' ? true : false;
-        
-                const propertiesToEdit = {
-                    name: name,
-                    hasRings: hasRingsNormalized,
-                    image: image,
-                    galaxy_id: galaxy
-                }
-        
-                Planet.update(propertiesToEdit, {
-                    where: {
-                        id
-                    }
-                })
-                    .then(() => {
-                        res.redirect('/planets/detail/' + id);
-                    })
-        
-            })
+            
 
         
     },

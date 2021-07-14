@@ -16,5 +16,12 @@ module.exports = (sequelize, DataType) => {
     
     const GalaxyModel = sequelize.define(alias, cols, config)
 
+    GalaxyModel.associate = models => {
+        GalaxyModel.hasMany(models.Planet, {
+            as: 'planets',
+            foreignKey: 'galaxy_id',
+        })
+    }
+
     return GalaxyModel
 }           
