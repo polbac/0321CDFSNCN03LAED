@@ -4,7 +4,6 @@
 
 - Recursos
 - Collecciones
-
 ## Verbos
 
 - GET
@@ -16,3 +15,8 @@
 ## HTTP Status Code
 
 https://developer.mozilla.org/es/docs/Web/HTTP/Status
+
+## Respuestas
+
+- Metadata
+- Data
