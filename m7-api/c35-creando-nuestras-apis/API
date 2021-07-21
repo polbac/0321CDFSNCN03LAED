@@ -1,0 +1,8 @@
+
+PLANETAS
+
+[GET]    /api/planets -> devuelve colección de planetas
+[GET]    /api/planets/:id -> devuelve el recurso planeta
+[POST]   /api/planets -> crea el recurso planeta a partir de lo enviado en el body
+[PUT]    /api/planets/:id -> edita el recurso a partir del id y lo enviado en el body
+[DELETE] /api/planets/:id -> elimina el recurso id

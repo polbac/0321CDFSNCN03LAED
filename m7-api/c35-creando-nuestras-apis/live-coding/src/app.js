@@ -53,6 +53,10 @@ app.use('/planets', planetsRoutes)
 const usersRoutes = require('./routes/usersRoutes')
 app.use('/users', usersRoutes)
 
+// api
+const apiRoutes = require('./routes/api')
+app.use('/api', apiRoutes)
+
 app.use(notFoundMiddleware)
 
 // catch 404 and forward to error handler
