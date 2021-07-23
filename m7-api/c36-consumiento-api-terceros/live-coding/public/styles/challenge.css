@@ -295,10 +295,12 @@ input{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-top: 50px;
 }
 
 .photos article{
-    width: 45%;
+    width: 40%;
+    margin-bottom: 20px;
 }
 
 /* Mobile First */
