@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+
+        
+
+        <section class="photos">
+
+            <h1>Fotos del Satélite</h1>
+            <div class="content">
+                <% photos.forEach(({ image, title }) => {  %>
+                    <article>
+                        <img src="<%= image %>" width="100%" />
+                        <p><%= title %></p>
+                    </article>
+                <% }) %>
+            </div>
+        </section>
+
+    </main>
+
+
+
+</body>
+</html> 

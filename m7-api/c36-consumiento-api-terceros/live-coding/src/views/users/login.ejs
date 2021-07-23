@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+       
+        <section class="session-form">
+            
+            <form action="/users/login" method="POST">
+
+                <div class="input-container">
+                    <label for="name">Ingrese su email</label>
+                    <input type="text" name="email" id="email" class="<%= (locals.errors && errors.email) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.email %>"/>
+                    
+                    <% if (locals.errors && errors.email) { %>
+                        <p class='msg-error'><%= errors.email.msg %></p>
+                    <% } %>
+                </div>
+
+                <div class="input-container">
+                    <label for="password">Ingrese su password</label>
+                    <input type="password" name="password" id="password" class="<%= (locals.errors && errors.password) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.password %>"/>
+                    
+                    <% if (locals.errors && errors.password) { %>
+                        <p class='msg-error'><%= errors.password.msg %></p>
+                    <% } %>
+                </div>
+
+                <div class="input-container">
+                    <input type="checkbox" name="remember" id="remember" value="yes" <%= (locals.oldValues && oldValues.remember === 'yes') ? 'checked' : '' %>/> Recordar usuario
+                </div>
+
+                <div class="input-container">
+                    <button type="submit">Ingresar</button>
+                </div>
+
+            </form>
+        </section>
+
+
+   </main>
+
+   <div id="space-x-banner"></div>
+
+
+</body>
+</html> 
