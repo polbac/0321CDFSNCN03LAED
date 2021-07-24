@@ -5,10 +5,11 @@
 ## Anuncios
 
 - Encuesta
+- Semana que viene co-learning
 
 # API Nasa
 
-https://api.nasa.gov/ (EPIC & Mars Rover Photos)
+https://api.nasa.gov/ (Mars Rover Photos & EPIC )
 
 # Postman
 
@@ -25,4 +26,4 @@ https://www.npmjs.com/package/node-fetch
 https://www.npmjs.com/package/node-cache
 # Ejercitación
 
-- Desafios Movies DB
+- Desafios API OMDB
