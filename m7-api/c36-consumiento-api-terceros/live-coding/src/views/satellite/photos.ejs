@@ -13,10 +13,10 @@
 
             <h1>Fotos del Satélite</h1>
             <div class="content">
-                <% photos.forEach(({ image, title }) => {  %>
+                <% photos.forEach(({img_src, camera: { full_name }}) => {  %>
                     <article>
-                        <img src="<%= image %>" width="100%" />
-                        <p><%= title %></p>
+                        
+                        <p><%= full_name %></p>
                     </article>
                 <% }) %>
             </div>

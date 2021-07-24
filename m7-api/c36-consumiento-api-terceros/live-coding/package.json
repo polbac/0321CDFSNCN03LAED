@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./src/bin/www",
-    "dev": "nodemon ./src/bin/www"
+    "dev": "nodemon ./src/bin/www",
+    "run-tests-api": "newman run ./src/tests-postman/NASA.postman_collection.json"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,6 +21,8 @@
     "morgan": "~1.9.1",
     "multer": "^1.4.2",
     "mysql2": "^2.2.5",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^2.6.1",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
