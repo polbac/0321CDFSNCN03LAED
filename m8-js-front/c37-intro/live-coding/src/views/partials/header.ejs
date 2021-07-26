@@ -1,0 +1,26 @@
+<header>
+    <div class="earth">
+        <img src="https://www.google.com/earth/studio/assets/static/images/social.jpg" height="100" />
+    </div>
+    <marquee>
+        <h1>🪐 P l a n e t a s 🌏</h1>
+    </marquee>
+    
+</header>
+<nav>
+     <a href="/">HOME</a>
+     <a  href="/planets/list">LISTA DE PLANETAS</a>
+     <a href="/planets/create">ENVIA TU PLANETA</a>
+     <a href="/satellite/photos">FOTOS DEL SATÉLITE</a>
+ </nav>
+
+ <div class="session-nav">
+     <% if (locals.logged) { %>
+        <%- include('nav-auth') %> 
+     <% } else {%>
+        <%- include('nav-guest') %> 
+    <% }%>
+    
+    
+     
+ </div>
