@@ -40,8 +40,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 // home
 app.get('/', (req, res) => {
     res.render('home', {
-      
-        title: 'PLANETAS'
+        title: 'PLANETAS',
     });
 })
 

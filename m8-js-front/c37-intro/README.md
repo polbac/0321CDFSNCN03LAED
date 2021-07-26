@@ -2,8 +2,12 @@
 
 ## Vinculación
 
+## console / alert / prompt / consola browser
 ## window (ventana viewport)
-
+window.addEventListener("load")
+window.innerWidth
+window.innerHeight
+window.location
 ## document (dom)
 ```
 querySelector(selector)
