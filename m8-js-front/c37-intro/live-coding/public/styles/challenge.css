@@ -12,6 +12,15 @@ html,body{
     box-sizing: border-box;
 }  
 
+header{
+    font-size: 42px;
+}
+
+body.day header{
+    background: white;
+    color: blue;
+}
+
 table{
     font-size: 1.75rem;
     border:1px solid pink;

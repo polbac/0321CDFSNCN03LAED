@@ -19,3 +19,9 @@ domObject.style =
 domObject.classList.add(className)
 domObject.classList.remove(className)
 domObject.classList.toggle(className)
+
+domObject.getAttribute("attributeName)
+
+## scope (window / document)
+
+## controller -> js browser
