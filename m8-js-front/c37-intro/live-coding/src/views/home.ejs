@@ -3,18 +3,20 @@
 
 <%- include('partials/head') %>
 
+<script>
+    const sectionName = "<%= sectionName %>"
+</script>
+
 <body>
   
     <%- include('partials/header') %>
     
    <main >
 
-    
-
-
 
        <section class="home">
            <center>
+               <div id="welcome">[INSERTE FRASE ACA]</div>
             <img src="https://media.giphy.com/media/MXQnyEQwBJ6eTj90L5/giphy-downsized-large.gif" />
             </center>
         </section>
@@ -22,6 +24,10 @@
 
    </main>
 
+
    <%- include('partials/footer') %>
+
+   <script src="/js/main.js"></script>
+   <script src="/js/time.js"></script>
 </body>
 </html> 
