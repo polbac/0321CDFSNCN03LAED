@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+       
+        <section class="send-planet">
+            <!-- 
+                action: la ruta donde vamos a mandar nuestros campos 
+            -->
+            <form action="/planets/create" method="POST" enctype="multipart/form-data">
+
+                <div class="input-container">
+                    <label for="name">Ingrese su nombre</label>
+                    <input type="text" name="name" id="name" class="<%= (locals.errors && errors.name) ? 'input-error' : '' %>" value="<%= locals.oldValues && oldValues.name %>"/>
+                    
+                    <% if (locals.errors && errors.name) { %>
+                        <p class='msg-error'><%= errors.name.msg %></p>
+                    <% } %>
+
+                    <!-- <span class='msg-error'><%= /* locals.errors && errors.name ? errors.name.msg : '' */ %></span> -->
+                </div>
+
+                <div class="input-container">
+                    <label for="diameter">Ingrese el diametro</label>
+                    <input type="text" name="diameter" id="diameter"/>
+                </div>
+
+                <div class="input-container">
+                    <label for="hasRings">¿Su planeta tiene anillos?</label>
+                    <div class="<%= (locals.errors && errors.hasRings) ? 'input-error' : '' %>">
+                        <input type="radio" name="hasRings" id="hasRings" value="true" /> Si
+                        <input type="radio" name="hasRings" id="hasRings" value="false"/> No
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <label for="discovered">Fecha de descubrimiento</label>
+                    <input type="date" name="discovered" id="discovered">
+                </div>
+
+                <div class="input-container">
+                    <label for="galaxy">Seleccione la galaxia a la que pertenece</label>
+                    <select name="galaxy" id="galaxy" style="width: 100%;">
+                        <% galaxies.forEach(galaxy => { %>
+                         
+                            <option value="<%= galaxy.id %>"><%= galaxy.name %></option>
+
+                        <% }) %>
+                    </select>
+                </div>
+
+                <div class="input-container">
+                    <label for="image">Imágen</label>
+                    <input type="file" name="image" id="image" />
+                    <% if (locals.errors && errors.image) { %>
+                        <p class='msg-error'><%= errors.image.msg %></p>
+                    <% } %>
+
+                </div>
+
+                <div class="input-container">
+                    <button type="submit">CREAR</button>
+                </div>
+
+            </form>
+        </section>
+
+
+   </main>
+
+   <div id="space-x-banner"></div>
+
+
+   <%- include('../partials/footer') %>
+</body>
+</html> 

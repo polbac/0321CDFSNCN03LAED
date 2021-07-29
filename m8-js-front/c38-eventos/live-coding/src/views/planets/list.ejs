@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+
+
+
+       <section class="planets">
+           <% planetList.forEach((planet) => { %>
+                <article class="planet planet-1">
+                    <img src="<%= planet.image %>" alt="" width="100%">
+                    
+                        <h2 class="titulo-mercurio">
+                            <a href="/planets/detail/<%= planet.id %>"><%= planet.name %></a>
+                        </h2>
+                </article>        
+           <% }) %>
+        
+        
+        </section>
+
+        <h2>NAVES</h2>
+        <section class="ships">
+            <article class="ship ship-1">
+                <img src="https://i1.wp.com/hipertextual.com/wp-content/uploads/2011/03/enterprise_5_hr-w640.jpg?w=640&ssl=1" alt="">
+                <p>Una de las naves espaciales más conocidas y el ícono del universo de Star Trek, el USS Enterprise es un crucero de batalla Clase Constitución de la Flota Estelar de la Federación Unida de Planetas y además es una de sus naves insignia. Probablemente el más célebre de sus capitanes –entre los que se encuentra Spock– fue James T. Kirk.</p>
+            </article>
+
+            <article class="ship ship-2">
+                <img src="https://i1.wp.com/hipertextual.com/wp-content/uploads/2011/03/millenium_falcon.jpg?w=640&ssl=1" alt="">
+                <p>Su capitán es el contrabandista Han Solo y es quizás la nave más famosa del universo de Star Wars.Pasó de ser originalmente usada para el contrabando a formar parte de la Alianza Rebelde. Tuvo varias misiones entre las que destaca destruir la primera y segunda Estrellas de la Muerte junto a los cazas X-Wing.                </p>
+            </article>
+
+            <article class="ship ship-3">
+                <img src="https://i1.wp.com/hipertextual.com/wp-content/uploads/2011/03/galactica1-w6401.jpg?w=639&ssl=1" alt="">
+                <p>Su capitán es el contrabandista Han Solo y es quizás la nave más famosa del universo de Star Wars.Pasó de ser originalmente usada para el contrabando a formar parte de la Alianza Rebelde. Tuvo varias misiones entre las que destaca destruir la primera y segunda Estrellas de la Muerte junto a los cazas X-Wing.                </p>
+            </article>
+        </section>
+
+
+   </main>
+
+
+   <%- include('../partials/footer') %>
+</body>
+</html> 
