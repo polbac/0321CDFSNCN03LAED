@@ -26,8 +26,18 @@ html,body{
 .submenu-planets{
     position: absolute;
     top: 50px;
-    left: 70px;
+    left: 90px;
     background: blue;
+    visibility: hidden;
+    transition: all 0.25s;
+    transform: translate(0,-10px);
+    opacity: 0;
+}
+
+.submenu-planets.show{
+    visibility: visible;
+    transform: translate(0,0);
+    opacity: 1;
 }
 
 .submenu-planets a{

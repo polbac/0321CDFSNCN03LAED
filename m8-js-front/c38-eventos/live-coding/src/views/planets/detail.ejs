@@ -22,7 +22,7 @@
             <table width="100%" border="1">
                 <tr>
                     <td>Galaxia</td>
-                    <td><%= planetDetail.galaxy.name %></td>
+                    <td><%= planetDetail.galaxy && planetDetail.galaxy.name %></td>
                 </tr>
                 <tr>
                     <td>Anillos</td>
@@ -33,7 +33,7 @@
                     <td>
                         <ul>
                             <% 
-                            planetDetail.colors.forEach(color => {
+                            planetDetail.colors && planetDetail.colors.forEach(color => {
                             %>
                             <li><%= color.name %></li>
                             <% }) %> 
@@ -48,7 +48,7 @@
             <% } %>
             
             <div class="actions">
-                <a href="/planets/<%=   .id %>/edit">
+                <a href="/planets/<%=planetDetail.id %>/edit">
                     <button>Edit</button>
                 </a>
                 <form action="/planets/<%= planetDetail.id %>?_method=DELETE" method="POST">
@@ -61,6 +61,6 @@
    </main>
 
 
-   <%- include('partials/footer') %>
+   <%- include('../partials/footer') %>
 </body>
 </html> 
