@@ -11,6 +11,17 @@ html,body{
     margin: 0;
     box-sizing: border-box;
 }  
+.search input{
+    width: 200px;
+    font-size: 20px;
+    border: 0;
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.search{
+    display: inline-block;
+}
 
 .submenu-planets{
     position: absolute;
