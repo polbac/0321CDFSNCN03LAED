@@ -1,6 +1,6 @@
 # JS DE FRONT: Eventos
 
-<img src="https://media.giphy.com/media/l0ou6ZIurzsvTaeoFq/giphy.gif" width="400" />
+<img src="https://media.giphy.com/media/l0HlQXlQ3nHyLMvte/giphy.gif" width="400" />
 
 ## Anuncios
 
@@ -21,6 +21,7 @@ dbclick
 mouseover
 mouseout
 mousemove
+mouseenter
 mouseleave
 
 e.preventDefault()

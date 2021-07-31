@@ -25,13 +25,13 @@ html,body{
 
 .submenu-planets{
     position: absolute;
-    top: 50px;
+    top: 55px;
     left: 90px;
     background: blue;
-    visibility: hidden;
     transition: all 0.25s;
     transform: translate(0,-10px);
     opacity: 0;
+    width: 150px;
 }
 
 .submenu-planets.show{
@@ -51,6 +51,27 @@ header{
 body.day header{
     background: white;
     color: blue;
+}
+
+.tooltip{
+    position: fixed;
+    background: blue;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    display: none;
+}
+
+.tooltip::after{
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: absolute;
+    border-top: 20px solid blue;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
 }
 
 table{
