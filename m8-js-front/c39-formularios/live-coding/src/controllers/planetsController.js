@@ -38,8 +38,9 @@ const planetsController = {
         const galaxies = await Galaxy.findAll()
         res.render('planets/new', { galaxies })
     },
-    store: (req, res) => {
+    store: async (req, res) => {
         const formValidation = validationResult(req)
+        const galaxies = await Galaxy.findAll()
         
         /* si encuentro un error devuelvo el formulario
         con los valores ya cargados y los errores */
@@ -55,7 +56,7 @@ const planetsController = {
 
             // tenemos errores
             const oldValues = req.body
-            res.render('planets/new', { oldValues, errors: formValidation.mapped() })
+            res.render('planets/new', { galaxies, oldValues, errors: formValidation.mapped() })
           return  
         } 
         // Crear el objeto planeta

@@ -172,6 +172,10 @@ header form button{
     display: inline;
 }
 
+input.error{
+    border: 1px solid red;
+}
+
 .input-container select{
     font-size: 1.25em;
 }
