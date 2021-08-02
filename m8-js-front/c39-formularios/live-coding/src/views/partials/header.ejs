@@ -1,0 +1,45 @@
+<header>
+    <div class="earth">
+        <img src="https://www.google.com/earth/studio/assets/static/images/social.jpg" height="100" />
+    </div>
+    <marquee>
+        <h1 id="logo">🪐 P l a n e t a s 🌏</h1>
+    </marquee>
+    
+</header>
+<nav>
+    <div>
+        <a class="section-home" href="/">HOME</a>
+        <a class="section-list" href="/planets/list">LISTA DE PLANETAS</a>
+        <a class="section-create" href="/planets/create">ENVIA TU PLANETA</a>
+        <a class="section-photos" href="/satellite/photos">FOTOS DEL SATÉLITE</a>
+    </div>
+    <div class="submenu-planets">
+        <% locals.planets.forEach(planet => { %>
+         <a href="/planets/detail/<%= planet.id%>"><%= planet.name%></a>
+        <% }) %>
+    </div>
+     <div class="night-day">
+         <div class="search">
+             <input type="text" placeholder="Buscar...">
+         </div>
+        <span class="time"></span>
+        <span class="night">
+            ☀️
+        </span>
+        <span class="day">
+            🌙
+        </span>
+     </div>
+ </nav>
+
+ <div class="session-nav">
+     <% if (locals.logged) { %>
+        <%- include('nav-auth') %> 
+     <% } else {%>
+        <%- include('nav-guest') %> 
+    <% }%>
+    
+    
+     
+ </div>
