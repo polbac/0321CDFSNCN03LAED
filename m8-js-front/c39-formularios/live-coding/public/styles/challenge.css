@@ -11,16 +11,38 @@ html,body{
     margin: 0;
     box-sizing: border-box;
 }  
+.search.focused button{
+    display: inline-block;
+}
+.search.focused input{
+    width: 150px;
+    background: white;
+}
 .search input{
-    width: 200px;
+    width: 80px;
     font-size: 20px;
     border: 0;
-    margin-right: 20px;
     padding: 10px;
+    background: pink;
+    width: 120px;
+    transition: all 0.25s;
+}
+
+.search button{
+    display: none;
+    height: 43px;
+    border: 0;
+    position: relative;
+    width: 37px;
+    top: -2px;
+    background: #5f4859;
+    color: white;
+    font-weight: bold;
 }
 
 .search{
     display: inline-block;
+    margin-right: 20px;
 }
 
 .submenu-planets{
