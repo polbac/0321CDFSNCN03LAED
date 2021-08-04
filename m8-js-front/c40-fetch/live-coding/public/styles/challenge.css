@@ -1,0 +1,457 @@
+html,body{
+    background-color: #000000;
+    color: white;
+    font-family: "Staatliches", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    background-image: url(/images/fondo.gif);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}  
+.search.focused button{
+    display: inline-block;
+}
+.search.focused input{
+    width: 150px;
+    background: white;
+}
+.search input{
+    width: 80px;
+    font-size: 20px;
+    border: 0;
+    padding: 10px;
+    background: pink;
+    width: 120px;
+    transition: all 0.25s;
+}
+
+.search button{
+    display: none;
+    height: 43px;
+    border: 0;
+    position: relative;
+    width: 37px;
+    top: -2px;
+    background: #5f4859;
+    color: white;
+    font-weight: bold;
+}
+
+.search{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.submenu-planets{
+    position: absolute;
+    top: 55px;
+    left: 90px;
+    background: blue;
+    transition: all 0.25s;
+    transform: translate(0,-10px);
+    opacity: 0;
+    width: 150px;
+}
+
+.submenu-planets.show{
+    visibility: visible;
+    transform: translate(0,0);
+    opacity: 1;
+}
+
+.submenu-planets a{
+    color: white;
+    display: block;
+}
+header{
+    font-size: 42px;
+}
+
+body.day header{
+    background: white;
+    color: blue;
+}
+
+.tooltip{
+    position: fixed;
+    background: blue;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+    display: none;
+}
+
+.tooltip::after{
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: absolute;
+    border-top: 20px solid blue;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+}
+
+table{
+    font-size: 1.75rem;
+    border:1px solid pink;
+}
+.profile{
+    max-width: 600px;
+    margin: auto;
+    font-size: 2rem;
+    margin-top: 20px;
+    background:coral;
+    padding: 20px;
+    color: black;
+}
+
+.session-form{
+    max-width: 320px;
+    margin: auto;
+    padding: 20px 50px 20px 50px;
+    background: tomato;
+    margin-top: 50px;
+}
+
+.session-nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: black;
+    padding: 10px;
+}
+
+.session-nav a{
+    color: blue;
+    font-size: 1.5rem;
+}
+
+h2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+header form{
+    display: flex;
+    height: 50px;
+    align-items: stretch;
+}
+
+header form input{
+    flex-grow: 1;
+}
+
+header form button{
+    background: black;
+    color: pink;
+    width: 100px;
+    margin-left: 10px;
+}
+
+.planets-detail{
+    margin: auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.planets-detail .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.input-container {
+    margin-bottom: 20px;
+    font-size: 1.25em;
+}
+
+
+.input-container p,
+.input-container label{
+    display: block;
+    font-size: 1.25em;
+}
+
+.input-container input,
+.input-container textarea{
+    width: 100%;
+    font-size: 1.2em;
+    color: gray;
+    padding: 10px;
+    outline: none;
+}
+
+.input-container .label-inline{
+    display: inline;
+}
+
+input.error{
+    border: 1px solid red;
+}
+
+.input-container select{
+    font-size: 1.25em;
+}
+.input-container input[type="checkbox"],
+.input-container input[type="radio"]{
+    width: initial;
+}
+
+.input-container textarea{
+    height: 100px;
+}
+
+.input-container textarea:focus,
+.input-container input:focus{
+    border: 3px solid orange;
+}
+
+
+.planets a{
+    color: white;
+}
+.planets{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.planet{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header{    
+    background: blue;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ships .ship{
+    background: burlywood;
+    color: black;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+}
+
+.ships .ship p{
+    padding: 20px;
+}
+
+nav{
+    background: #ff5db5;
+    font-size: 1.5em;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+nav a{
+    color: black;
+    margin: 10px;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    
+}
+.home{
+    position: relative;
+}
+.home #welcome{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 3rem;
+    transform: translate(-50%, -50%)
+}
+
+nav a.active,
+nav a:hover{
+    background: black;
+    color: yellow;
+    
+}
+
+article.planet{
+    position: relative;
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    align-items: baseline;
+}
+
+.msg-error{
+    color: red;
+}
+
+.input-error{
+    border: 2px solid red;
+}
+
+.send-planet{
+    margin: auto;
+    max-width: 760px;
+}
+
+input{
+    font-size: 1.25em;
+}
+
+.send-planet form {
+    margin-top: 50px;
+    background: #004c54;
+    padding: 30px;
+}
+.planets-detail button,
+.session-form form button,
+.send-planet form button{
+    background: black;
+    border: 0;
+    padding: 10px;
+    font-family: "Staatliches", Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #000;
+    border-bottom: 5px solid pink;
+    color: pink;
+}
+
+
+#space-x-banner{
+    width: 200px;
+    height: 200px;
+    background: red;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    background-image: url(/images/spacex.png);
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 5px 5px 15px red;
+    animation: space-x-levitate 3s infinite;
+}
+
+@keyframes space-x-levitate{
+    0%{
+        bottom: 20px;
+    }
+    50%{
+        bottom: 30px;
+        box-shadow: 5px 5px 15px green;
+    }
+    100%{
+        bottom: 20px;
+    }
+}
+
+#modal-welcome-container{
+    z-index: 9999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: rgba(0,0,0,0.8); */
+    backdrop-filter: blur(10px);
+}
+
+#modal-welcome{
+    background: gray;
+    width: 600px;
+    height: 600px;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.photos{
+    max-width: 900px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.photos .content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.photos article{
+    width: 40%;
+    margin-bottom: 20px;
+}
+
+/* Mobile First */
+
+@media (min-width: 576px) {
+    .planets .planet{
+        flex-basis: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .planets .planet{
+        flex-basis: 33.33%;
+    }
+
+    .ships .ship{
+        flex-direction: row;
+    }
+    .ships .ship.ship-2{
+        flex-direction: row-reverse;
+    }
+    .ships .ship p{
+        font-size: 1.25em;
+        text-align: right;
+    }
+    .ships .ship img,.ships .ship p{
+        width: 50%;
+    }
+}
+
+.hidden{
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .planets .planet{
+        flex-basis: 25%;
+    }
+
+    .ships .ship img{
+        width: 33.33%;
+    }
+    .ships .ship p{
+        flex-grow: 1;
+    }
+    
+}
+
