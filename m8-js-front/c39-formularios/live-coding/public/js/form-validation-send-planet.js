@@ -14,7 +14,6 @@ const errorDiscovered = form.querySelector('.msg-error-discovered')
 const errorGalaxy = form.querySelector('.msg-error-galaxy')
 const errorImage = form.querySelector('.msg-error-image')
 
-
 const inputArray = [
     inputName, inputDiameter, inputDiscovered, inputGalaxy, inputImage
 ] 

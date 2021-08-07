@@ -3,7 +3,8 @@ const { Planet } = require('../../database/models')
 
 module.exports = {
     async searchPlanets(req, res) {
-        const { name } = req.params
+        const { name } = req.query
+
         const planets = await Planet.findAndCountAll({
             where: {
                 name: {

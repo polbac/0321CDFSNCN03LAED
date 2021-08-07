@@ -15,7 +15,7 @@ html,body{
     display: inline-block;
 }
 .search.focused input{
-    width: 150px;
+    width: 250px;
     background: white;
 }
 .search input{
@@ -39,10 +39,106 @@ html,body{
     color: white;
     font-weight: bold;
 }
+  
+.search #mask {
+    animation: mask 975ms ease infinite;
+}
+@keyframes mask {
+    from {transform: translateX(0)}
+    to {transform: translateX(280px)}
+}
+
+.search svg{
+    position: relative;
+    left: -40px;
+    top: 4px;
+}
 
 .search{
     display: inline-block;
     margin-right: 20px;
+    position: relative;
+}
+.search .results{
+    text-align: left;
+    padding: 10px;
+    color: black;
+    display: none;  
+}
+.search .results .recent{
+    display: none;
+}
+.search .results .recent .list{
+    color: white;
+    margin-top: 5px;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.search .results .list-results a{
+    display: block;
+}
+
+.search .results .list-results{
+    font-size: 14px;
+    background: #ccc;
+    padding: 10px;
+    display: none;
+}
+
+.search .results .loading{
+    display: none;
+}
+
+.search .results .recent{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.search .results{
+    position: absolute;
+    top: 43px;
+    width: 100%;
+    background: gray;
+    padding: 20px;
+}
+.newsletter button{
+    border: 0;
+    background: pink;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.newsletter .success{
+    margin-top: 10px;
+    font-size: 1.2rem;
+    display: none;
+}
+.newsletter button,
+.newsletter input{
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+}
+.ml12 {
+    font-weight: 200;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+  
+  .ml12 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+.newsletter{
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    background:black;
+    font-size: 1.5rem;
+    border: 2px solid pink;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .submenu-planets{
