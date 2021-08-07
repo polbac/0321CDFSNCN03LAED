@@ -6,7 +6,7 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING
         },
         email: {
-            type: DataType.INTEGER,
+            type: DataType.INTEGER
         },
         password: {
             type: DataType.BOOLEAN
