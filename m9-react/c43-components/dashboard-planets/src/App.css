@@ -46,14 +46,3 @@ main{
   display: flex;
 }
 
-.planet{
-  width: 25%;
-}
-
-.planets{
-  display: flex;
-  min-height: 100vh;
-  background: black;
-  color: white;
-  padding: 50px;
-}
