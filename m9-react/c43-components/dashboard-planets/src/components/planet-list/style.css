@@ -5,4 +5,9 @@
     color: white;
     padding: 50px;
     flex: 1;
+    flex-wrap: wrap;
+  }
+
+  h2{
+    width: 100%;
   }

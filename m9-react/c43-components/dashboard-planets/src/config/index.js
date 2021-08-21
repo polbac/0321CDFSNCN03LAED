@@ -50,10 +50,4 @@ export const PLANETS = [
         "image": "pluton.png",
         "rings": "no"
       },
-      {
-        "id": 10,
-        "name": "X3",
-        "rings": "yes",
-        "image": "1623201222798.jpeg"
-      },
 ]

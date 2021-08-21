@@ -1,6 +1,5 @@
 import Sidebar from './components/sidebar/Sidebar'
 import PlanetList from './components/planet-list/PlanetList'
-
 import './App.css';
 
 import { SidebarTitle, SidebarSubtitle } from './config'
