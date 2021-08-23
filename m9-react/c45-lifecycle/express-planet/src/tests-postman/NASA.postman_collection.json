@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "5027b9ec-3c78-4051-9350-c5e884b520f2",
+		"name": "NASA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fotos de Marte",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Has photos attribute and is an array\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.photos).to.be.an(\"array\")",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key={{API_KEY}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"mars-photos",
+						"api",
+						"v1",
+						"rovers",
+						"curiosity",
+						"photos"
+					],
+					"query": [
+						{
+							"key": "sol",
+							"value": "1000"
+						},
+						{
+							"key": "api_key",
+							"value": "{{API_KEY}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_KEY",
+			"value": "ynvebr51zLjTnIL6ASXs4auV1bOmcA2IpISzCwzo"
+		}
+	]
+}

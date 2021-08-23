@@ -1,0 +1,24 @@
+nav{
+    background: burlywood;
+    background-image: url(./bg.gif);
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    min-height: 100vh;
+    padding: 50px;
+    color: yellowgreen;
+  }
+  
+  nav a{
+    display: block;
+    background: yellowgreen;
+    margin-bottom: 10px;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+  }
+nav a.active{
+  background: black;
+  color: yellowgreen;
+}
+  
