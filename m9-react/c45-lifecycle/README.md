@@ -2,16 +2,20 @@
 
 <img src="https://media4.giphy.com/media/eNAsjO55tPbgaor7ma/giphy.gif?cid=6c09b952uoi6huly8sad0d4vwtnipn67ujnrs99rdr6oyxls&rid=giphy.gif&ct=s" width="350" />
 
-## Class
+## Anuncios
 
-## state, setState
+- Sprint viernes próxima semana
 
-## events
+## ClassComponent
+
+## state, setState, this
+
+## events (native events vs react events) / () => {} / .bind()
 
 ## LifeCycle
 
 - componentDidMount()
-- componentDidUpdate()
+- componentDidUpdate(prevProps, prevState, snapshot)
 - componentWillUnmount()
 
 ## fetch

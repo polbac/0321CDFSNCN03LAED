@@ -5,6 +5,7 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan');
 const method = require('method-override');
+const cors = require('cors');
 
 const { sessionSecret, cookiesSecret} = require('./config/config')
 
@@ -16,6 +17,7 @@ app.use(session({
   secret: sessionSecret
 }))
 
+app.use(cors())
 app.use(cookieParser(cookiesSecret))
 
 const cookiesSessionMiddleware = require('./middlewares/cookiesSessionMiddleware')

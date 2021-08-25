@@ -1,6 +1,8 @@
 export const SidebarTitle = "Dashboard Planets"
 export const SidebarSubtitle = "<SpaceData />"
 
+export const API_PLANETS = 'http://localhost:3000/api/planets'
+
 export const PLANETS = [
     {
         "id": 1,
