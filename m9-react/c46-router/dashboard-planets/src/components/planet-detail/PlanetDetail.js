@@ -1,0 +1,51 @@
+import React from 'react'
+import { Code } from 'react-content-loader'
+import { API_PLANETS_DETAIL } from '../../config'
+import "./style.css"
+
+const PLANET_ID = 13
+
+export default class PlanetDetail extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: true,
+            planetDetail: null
+        }
+    }
+    componentDidMount() {
+        fetch(`${API_PLANETS_DETAIL}${PLANET_ID}`)
+            .then(res => res.json())
+            .then(planetDetail => {
+                this.setState({
+                    loading: false,
+                    planetDetail: planetDetail.data.planet,
+                })
+            })
+    }
+    render() {
+        const { loading, planetDetail } = this.state
+
+        return (
+            <section class="planet-detail">
+                { loading ? (
+                        <Code
+                            height={140}
+                            speed={1}
+                            backgroundColor={'#333'}
+                            foregroundColor={'#999'}
+                        />
+                    ) : (
+                    <>
+                        <h3>{planetDetail.name}</h3>
+                        <div className="columns">
+                            <img src={planetDetail.image} />
+                            <p>{planetDetail.description}</p>
+                        </div>
+                    </>
+                    )
+                }
+            </section>
+        )
+    }
+}

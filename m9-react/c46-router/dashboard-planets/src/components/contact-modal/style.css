@@ -1,0 +1,28 @@
+#contact-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+#contact-modal .contact-wrapper{
+    width: 500px;
+    height: 500px;
+    color: white;
+    background: #212dcc;
+    padding: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+}
+
+#contact-modal .close{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

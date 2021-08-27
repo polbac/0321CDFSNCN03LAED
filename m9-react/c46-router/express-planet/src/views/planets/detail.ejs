@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+
+<body>
+    
+    <%- include('../partials/header') %>
+   <main >
+    
+
+
+
+       <section class="planets-detail">
+           <% if (planetDetail == null) {%>
+            UPS no encontramos el planeta
+           <% } else { %>
+
+            <h2><%= planetDetail.name %></h2>
+
+            
+
+            <table width="100%" border="1">
+                <tr>
+                    <td>Galaxia</td>
+                    <td><%= planetDetail.galaxy && planetDetail.galaxy.name %></td>
+                </tr>
+                <tr>
+                    <td>Anillos</td>
+                    <td><%= planetDetail.hasRings == 1 ? 'Yes' : 'No' %></td>
+                </tr>
+                <tr>
+                    <td>Colores</td>
+                    <td>
+                        <ul>
+                            <% 
+                            planetDetail.colors && planetDetail.colors.forEach(color => {
+                            %>
+                            <li><%= color.name %></li>
+                            <% }) %> 
+                        </ul>
+
+                    </td>
+                </tr>
+            </table>
+
+            <img src="<%= planetDetail.image %>" width="80%"/>
+          
+            <% } %>
+            
+            <div class="actions">
+                <a href="/planets/<%=planetDetail.id %>/edit">
+                    <button>Edit</button>
+                </a>
+                <form action="/planets/<%= planetDetail.id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </section>
+
+
+   </main>
+
+
+   <%- include('../partials/footer') %>
+</body>
+</html> 

@@ -1,0 +1,16 @@
+.planet-detail{
+    text-align: center;
+    
+    min-height: 100vh;
+    background: black;
+    color: white;
+    padding: 50px;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.planet-detail p{
+    position: absolute;
+    top: 50%;
+    background: rgba(0,0,0,0.9)
+}
