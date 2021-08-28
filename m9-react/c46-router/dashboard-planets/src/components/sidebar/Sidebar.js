@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./style.css"
 
 import { ContactModal } from '../contact-modal/ContactModal'
@@ -29,8 +30,9 @@ export default class Sidebar extends React.Component{
                     <h1>{title}</h1>
                     <p>{subtitle}</p>
     
-                    <a className="active" href="#">Planets</a>
-                    <a href="#">About</a>
+                    <Link to='/'>Planets</Link>
+                    <Link to='/about'>About</Link>
+                    
                     <a onClick={() => this.toggleContactModal()} href="#">Contact</a>
                     
                 </nav>   

@@ -2,9 +2,6 @@ import React from 'react'
 import { Code } from 'react-content-loader'
 import { API_PLANETS_DETAIL } from '../../config'
 import "./style.css"
-
-const PLANET_ID = 13
-
 export default class PlanetDetail extends React.Component {
     constructor(props) {
         super(props)
@@ -14,7 +11,9 @@ export default class PlanetDetail extends React.Component {
         }
     }
     componentDidMount() {
-        fetch(`${API_PLANETS_DETAIL}${PLANET_ID}`)
+        const { id } = this.props.match.params
+
+        fetch(`${API_PLANETS_DETAIL}${id}`)
             .then(res => res.json())
             .then(planetDetail => {
                 this.setState({
@@ -39,7 +38,7 @@ export default class PlanetDetail extends React.Component {
                     <>
                         <h3>{planetDetail.name}</h3>
                         <div className="columns">
-                            <img src={planetDetail.image} />
+                            <img src={`/${planetDetail.image}`} />
                             <p>{planetDetail.description}</p>
                         </div>
                     </>

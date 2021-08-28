@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Code } from 'react-content-loader'
 import { API_PLANETS } from '../../config'
-import Planet from '../planet/Planet'
+import Planet from '../../components/planet/Planet'
 import "./style.css"
 
 
@@ -55,6 +55,7 @@ export default class PlanetList extends Component{
                                         title={planet.name} 
                                         image={planet.image} 
                                         key={`planet-${planet.id}`}
+                                        planetId={planet.id}
                                     />
                                 )
                             })}
