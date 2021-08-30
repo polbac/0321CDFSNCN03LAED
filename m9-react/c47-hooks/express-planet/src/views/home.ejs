@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head') %>
+
+<script>
+    const sectionName = "<%= sectionName %>"
+</script>
+
+<body>
+  
+    <%- include('partials/header') %>
+    
+   <main >
+
+
+       <section class="home">
+           <center>
+               <div id="welcome">   
+                    <h1 class="ml12">
+                        LIVECODING CON PLANETAS
+                    </h1>
+               </div>
+                <img src="https://media.giphy.com/media/MXQnyEQwBJ6eTj90L5/giphy-downsized-large.gif" />
+            </center>
+        </section>
+
+
+   </main>
+
+
+   <%- include('partials/footer') %>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+   <script src="/js/home.js"></script>
+</body>
+</html> 
