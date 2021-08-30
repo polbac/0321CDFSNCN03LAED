@@ -43,4 +43,5 @@ useEffect(() => {
 const refEl = useRef()
 
 <div ref={refEl} />
-```
+
+## useCallback, useMemo
