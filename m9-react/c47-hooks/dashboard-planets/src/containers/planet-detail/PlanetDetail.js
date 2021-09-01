@@ -1,50 +1,50 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import { Code } from 'react-content-loader'
 import { API_PLANETS_DETAIL } from '../../config'
 import "./style.css"
-export default class PlanetDetail extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            loading: true,
-            planetDetail: null
-        }
-    }
-    componentDidMount() {
-        const { id } = this.props.match.params
 
+export default function PlanetDetail() {
+    const { id } = useParams()
+
+    const [planetDetail, setPlanetDetail] = useState({
+        data: null,
+        loading: true,
+    })
+    
+    useEffect(() => {
         fetch(`${API_PLANETS_DETAIL}${id}`)
             .then(res => res.json())
-            .then(planetDetail => {
-                this.setState({
+            .then(planetApi => {
+                setPlanetDetail({
                     loading: false,
-                    planetDetail: planetDetail.data.planet,
+                    data: planetApi.data.planet,
                 })
             })
-    }
-    render() {
-        const { loading, planetDetail } = this.state
+    }, [id])
+    
+    const { loading, data } = planetDetail
 
-        return (
-            <section class="planet-detail">
-                { loading ? (
-                        <Code
-                            height={140}
-                            speed={1}
-                            backgroundColor={'#333'}
-                            foregroundColor={'#999'}
-                        />
-                    ) : (
-                    <>
-                        <h3>{planetDetail.name}</h3>
-                        <div className="columns">
-                            <img src={`/${planetDetail.image}`} />
-                            <p>{planetDetail.description}</p>
-                        </div>
-                    </>
-                    )
-                }
-            </section>
-        )
-    }
+    return (
+        <section class="planet-detail">
+            { loading ? (
+                    <Code
+                        height={140}
+                        speed={1}
+                        backgroundColor={'#333'}
+                        foregroundColor={'#999'}
+                    />
+                ) : (
+                <>
+                    <h3>{data.name}</h3>
+                    <div className="columns">
+                        <img src={`/${data.image}`} />
+                        <p>{data.description}</p>
+                    </div>
+                    <Link to={'/planet/4'}>Otro planeta</Link>
+                </>
+                )
+            }
+        </section>
+    )
 }
